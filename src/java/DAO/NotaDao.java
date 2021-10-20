@@ -1,6 +1,10 @@
-package DAO;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dao;
 
-import com.sun.prism.PresentableState;
 import conexion.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,9 +12,12 @@ import java.util.LinkedList;
 import java.util.List;
 import modelo.Nota;
 
+/**
+ *
+ * @author Angel
+ */
 public class NotaDao {
-
-    public Conexion cn;
+      public Conexion cn;
 
     public NotaDao(Conexion cn) {
         this.cn = cn;
@@ -105,6 +112,4 @@ public class NotaDao {
         }
         return ln;
     }
-    
-
 }
