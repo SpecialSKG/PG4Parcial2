@@ -4,9 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class Conexion {
+
     static String bd = "pgracademia";
-    static String user = "root";
-    static String pass = "";
+    static String user = "angel";
+    static String pass = "1234";
     static String url = "jdbc:mysql://localhost:3306/" + bd + "?useSSL=false";
 
     Connection conn = null;
@@ -27,7 +28,12 @@ public class Conexion {
         return conn;
     }
 
-    public void Desconectar() throws Exception {
-        conn.close();
+    public void Desconectar() {
+        try {
+            conn.close();
+            System.out.println("Conexion cerrada");
+        } catch (Exception e) {
+            System.out.println("error al cerrar la conexion: " + e);
+        }
     }
 }
