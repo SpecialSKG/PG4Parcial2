@@ -1,5 +1,6 @@
 package modelo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Curso {
@@ -16,8 +17,38 @@ public class Curso {
     private String direccion;
     private String telefono;
 
+    public Curso() {
+    }
+    
     public Curso(int id) {
         this.id = id;
+    }
+
+    public Curso(String codigo, String titulo, Date hora_duracion, Date fecha_inicio, Date fecha_fin, String profe_dui, String nombre, String apellido, String direccion, String telefono) {
+        this.codigo = codigo;
+        this.titulo = titulo;
+        this.hora_duracion = hora_duracion;
+        this.fecha_inicio = fecha_inicio;
+        this.fecha_fin = fecha_fin;
+        this.profe_dui = profe_dui;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.direccion = direccion;
+        this.telefono = telefono;
+    }
+
+    public Curso(int id, String codigo, String titulo, Date hora_duracion, Date fecha_inicio, Date fecha_fin, String profe_dui, String nombre, String apellido, String direccion, String telefono) {
+        this.id = id;
+        this.codigo = codigo;
+        this.titulo = titulo;
+        this.hora_duracion = hora_duracion;
+        this.fecha_inicio = fecha_inicio;
+        this.fecha_fin = fecha_fin;
+        this.profe_dui = profe_dui;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.direccion = direccion;
+        this.telefono = telefono;
     }
 
     public int getId() {
@@ -48,6 +79,14 @@ public class Curso {
         return hora_duracion;
     }
 
+    public void setHotaDuracionString(String horaFecha) {
+        try {
+            this.hora_duracion = new SimpleDateFormat("yyyy-MM-dd' 'hh:mm").parse(horaFecha);
+        } catch (Exception e) {
+            System.out.println("error al parsea, formato valido yyyy-MM-dd' 'hh:mm : " + e);
+        }
+    }
+
     public void setHora_duracion(Date hora_duracion) {
         this.hora_duracion = hora_duracion;
     }
@@ -56,12 +95,28 @@ public class Curso {
         return fecha_inicio;
     }
 
+    public void setFechaInicioString(String fecha) {
+        try {
+            this.fecha_inicio = new SimpleDateFormat("yyyy-MM-dd' 'hh:mm").parse(fecha);
+        } catch (Exception e) {
+            System.out.println("error al parsea, formato valido yyyy-MM-dd' 'hh:mm : " + e);
+        }
+    }
+
     public void setFecha_inicio(Date fecha_inicio) {
         this.fecha_inicio = fecha_inicio;
     }
 
     public Date getFecha_fin() {
         return fecha_fin;
+    }
+
+    public void setFechaFinString(String fecha) {
+        try {
+            this.fecha_fin = new SimpleDateFormat("yyyy-MM-dd' 'hh:mm").parse(fecha);
+        } catch (Exception e) {
+            System.out.println("error al parsea, formato valido yyyy-MM-dd' 'hh:mm : " + e);
+        }
     }
 
     public void setFecha_fin(Date fecha_fin) {

@@ -12,8 +12,34 @@ public class Alumno {
     private String telefono_empresa;
     private String direccion_empresa;
 
+    public Alumno() {
+    }
+
     public Alumno(int id) {
         this.id = id;
+    }
+
+    public Alumno(String dui, String direccion, String nombre, String telefono, int edad, String cif, String telefono_empresa, String direccion_empresa) {
+        this.dui = dui;
+        this.direccion = direccion;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.edad = edad;
+        this.cif = cif;
+        this.telefono_empresa = telefono_empresa;
+        this.direccion_empresa = direccion_empresa;
+    }
+
+    public Alumno(int id, String dui, String direccion, String nombre, String telefono, int edad, String cif, String telefono_empresa, String direccion_empresa) {
+        this.id = id;
+        this.dui = dui;
+        this.direccion = direccion;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.edad = edad;
+        this.cif = cif;
+        this.telefono_empresa = telefono_empresa;
+        this.direccion_empresa = direccion_empresa;
     }
 
     public int getId() {

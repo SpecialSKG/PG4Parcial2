@@ -4,9 +4,17 @@
         <servlet-name>AlumnoServlet</servlet-name>
         <servlet-class>controlador.AlumnoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NotaServlet</servlet-name>
+        <servlet-class>controller.NotaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AlumnoServlet</servlet-name>
         <url-pattern>/Alumno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NotaServlet</servlet-name>
+        <url-pattern>/notas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
