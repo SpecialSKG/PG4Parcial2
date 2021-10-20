@@ -22,9 +22,9 @@ public class CursoDao {
             PreparedStatement ps = conn.Conectar().prepareStatement(sql);
             ps.setString(1, c.getCodigo());
             ps.setString(2, c.getTitulo());
-            ps.setString(3, c.getHora_duracion());
-            ps.setString(4, c.getFecha_inicio());
-            ps.setInt(5, c.getFecha_fin());
+            ps.setString(3, c.getHoraDuracionString());
+            ps.setString(4, c.getFechaInicioString());
+            ps.setString(5, c.getFechaFinString());
             ps.setString(6, c.getProfe_dui());
             ps.setString(7, c.getNombre());
             ps.setString(8, c.getApellido());
@@ -43,14 +43,15 @@ public class CursoDao {
             PreparedStatement ps = conn.Conectar().prepareStatement(sql);
             ps.setString(1, c.getCodigo());
             ps.setString(2, c.getTitulo());
-            ps.setDate(3, c.getHora_duracion());
-            ps.setDate(4, c.getFecha_inicio());
-            ps.setDate(5, c.getFecha_fin());
+            ps.setString(3, c.getHoraDuracionString());
+            ps.setString(4, c.getFechaInicioString());
+            ps.setString(5, c.getFechaFinString());
             ps.setString(6, c.getProfe_dui());
             ps.setString(7, c.getNombre());
             ps.setString(8, c.getApellido());
             ps.setString(9, c.getDireccion());
             ps.setString(10, c.getTelefono());
+            ps.setInt(11, c.getId());
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
