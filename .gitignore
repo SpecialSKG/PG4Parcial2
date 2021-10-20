@@ -1,1 +1,4 @@
 /build/
+
+# Para que no cambie tu conexion
+/src/java/conexion/Conexion.java
