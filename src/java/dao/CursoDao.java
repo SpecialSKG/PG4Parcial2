@@ -118,7 +118,6 @@ public class CursoDao {
                 c.setDireccion(rs.getString("direccion"));
                 c.setTelefono(rs.getString("telefono"));
             }
-            conn.Desconectar();
         } catch (Exception e) {
             System.out.println("Error " + e);
         }

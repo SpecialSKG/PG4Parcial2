@@ -104,7 +104,7 @@ public class Curso {
 
     public void setHoraDuracionString(String horaFecha) {
         try {
-            this.hora_duracion = new SimpleDateFormat("yyyy-MM-dd' 'hh:mm:ss").parse(horaFecha);
+            this.hora_duracion = new SimpleDateFormat("dd/MM/yyyy").parse(horaFecha);
         } catch (Exception e) {
             System.out.println("error al parsea, formato valido yyyy-MM-dd' 'hh:mm:ss " + e);
         }
@@ -119,7 +119,7 @@ public class Curso {
     }
     
     public String getFechaInicioString(){
-        return new SimpleDateFormat("yyyy-MM-dd' 'hh:mm:ss").format(fecha_inicio);
+        return new SimpleDateFormat("dd/MM/yyyy").format(fecha_inicio);
     }
 
     public void setFechaInicioString(String fecha) {

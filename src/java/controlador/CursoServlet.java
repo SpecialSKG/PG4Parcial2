@@ -113,4 +113,5 @@ public class CursoServlet extends HttpServlet {
         rd = request.getRequestDispatcher("/updateCurso.jsp");
         rd.forward(request, response);
     }
+
 }
