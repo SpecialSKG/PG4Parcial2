@@ -46,6 +46,7 @@ public class AlumnoDao {
             ps.setString(6, alum.getCif());
             ps.setString(7, alum.getTelefono_empresa());
             ps.setString(8, alum.getDireccion_empresa());
+            ps.setInt(9, alum.getId());
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
