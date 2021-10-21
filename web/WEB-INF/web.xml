@@ -6,7 +6,7 @@
     </servlet>
     <servlet>
         <servlet-name>NotaServlet</servlet-name>
-        <servlet-class>controller.NotaServlet</servlet-class>
+        <servlet-class>controlador.NotaServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AlumnoServlet</servlet-name>

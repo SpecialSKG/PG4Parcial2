@@ -74,7 +74,7 @@ public class AlumnoServlet extends HttpServlet {
         request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
 
-        rd = request.getRequestDispatcher("/index.jsp");
+        rd = request.getRequestDispatcher("/alumnos.jsp");
         rd.forward(request, response);
     }
 
@@ -111,7 +111,7 @@ public class AlumnoServlet extends HttpServlet {
         request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
 
-        rd = request.getRequestDispatcher("/index.jsp");
+        rd = request.getRequestDispatcher("/editarAlumno.jsp");
         rd.forward(request, response);
     }
 
@@ -130,7 +130,7 @@ public class AlumnoServlet extends HttpServlet {
         request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
 
-        rd = request.getRequestDispatcher("/index.jsp");
+        rd = request.getRequestDispatcher("/verAlumnos.jsp");
         rd.forward(request, response);
     }
 
@@ -139,7 +139,7 @@ public class AlumnoServlet extends HttpServlet {
         lista = alumD.selectAll();
         request.setAttribute("lista", lista);
 
-        rd = request.getRequestDispatcher("/index.jsp");
+        rd = request.getRequestDispatcher("/verAlumnos.jsp");
         rd.forward(request, response);
     }
 
@@ -149,7 +149,7 @@ public class AlumnoServlet extends HttpServlet {
         lista = alumD.selectId(id);
         request.setAttribute("lista", lista);
 
-        rd = request.getRequestDispatcher("/index.jsp");
+        rd = request.getRequestDispatcher("/verAlumnos.jsp");
         rd.forward(request, response);
     }
 
