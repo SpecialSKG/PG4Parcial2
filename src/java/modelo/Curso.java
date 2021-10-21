@@ -102,7 +102,7 @@ public class Curso {
         return new SimpleDateFormat("hh:mm:ss").format(this.hora_duracion);
     }
 
-    public void setHotaDuracionString(String horaFecha) {
+    public void setHoraDuracionString(String horaFecha) {
         try {
             this.hora_duracion = new SimpleDateFormat("yyyy-MM-dd' 'hh:mm:ss").parse(horaFecha);
         } catch (Exception e) {
