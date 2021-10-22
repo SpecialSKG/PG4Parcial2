@@ -1,8 +1,10 @@
 package conexion;
 
+import dao.AlumnoDao;
 import dao.CursoDao;
 import dao.NotaDao;
 import java.util.List;
+import modelo.Alumno;
 import modelo.Curso;
 import modelo.Nota;
 
@@ -11,7 +13,7 @@ public class TestConexion {
     public static void main(String[] args) {
         Conexion c = new Conexion();
         c.Conectar();
-
+        /*
         Curso curso = new Curso();
 
         NotaDao n = new NotaDao(c);
@@ -21,6 +23,26 @@ public class TestConexion {
                 System.out.println(cs.getTitulo());
             }
         }
+         */
+        Alumno alum = new Alumno();
+        AlumnoDao ad = new AlumnoDao(c);
 
+        alum.setDui("444444");
+        alum.setDireccion("direccion");
+        alum.setNombre("nombre");
+        alum.setTelefono("telefono");
+        alum.setEdad(25);
+        alum.setCif("cif");
+        alum.setTelefono_empresa("telefono_empresa");
+        alum.setDireccion_empresa("direccion_empresa");
+
+        boolean resp = ad.Insert(alum);
+        if (resp) {
+            System.out.println("Registro Guardado con Exito");
+            System.out.println("-------------");
+        } else {
+            System.out.println("Error en Guardado");
+            System.out.println("-------------");
+        }
     }
 }

@@ -20,7 +20,8 @@
                             <a class="waves-effect waves-light" href="index.jsp">Inicio</a> / <a class="waves-effect waves-light" href="Alumno?action=selectAll">Alumnos registrados</a>
                             <br><br><br>
                             <form action="Alumno?action=update" method="POST">
-
+                                <c:forEach items="${lista}" var="Alumno">
+                                    
                                 <div class="input-field">
                                     <i class="material-icons prefix">assignment_ind</i>
                                     <label for="dui">DUI</label>
@@ -69,6 +70,8 @@
                                     <input type="text" name="direccion_empresa" required value="${Alumno.direccion_empresa}">
                                 </div>
                                 <br><br>
+                                <input type="hidden" name="id" value="${Alumno.id}">
+                                </c:forEach>
                                 <button class="waves-effect waves-orange btn" type="submit">Guardar</button>
 
                             </form>

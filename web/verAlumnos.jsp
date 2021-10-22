@@ -46,7 +46,7 @@
                                             <td><c:out value="${v.direccion_empresa}" /></td>
                                             <td>
                                                 <a href="Alumno?action=delete&id=${v.id}">Eliminar</a>
-                                                <a href="Alumno?action=selectbyid&id=${v.id}">Editar</a>
+                                                <a href="Alumno?action=selectId&id=${v.id}">Editar</a>
                                             </td>
                                         </tr>
                                     </c:forEach>

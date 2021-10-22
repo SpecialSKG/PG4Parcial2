@@ -2,4 +2,10 @@
 
 # Para que no cambie tu conexion
 src/java/conexion/Conexion.java
+src/java/conexion/Conexion.java*
+
 /dist/
+
+/nbproject/private/
+/nbproject/private/private.properties*
+/nbproject/private/private.xml*

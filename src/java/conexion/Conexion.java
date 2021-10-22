@@ -7,7 +7,7 @@ public class Conexion {
 
     static String bd = "pgracademia";
     static String user = "root";
-    static String pass = "Usam2021";
+    static String pass = "";
     static String url = "jdbc:mysql://localhost:3306/" + bd + "?useSSL=false";
 
     Connection conn = null;
