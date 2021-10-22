@@ -27,16 +27,16 @@ public class TestConexion {
         Alumno alum = new Alumno();
         AlumnoDao ad = new AlumnoDao(c);
 
-        alum.setDui("444444");
+        alum.setDui("55555");
         alum.setDireccion("direccion");
         alum.setNombre("nombre");
         alum.setTelefono("telefono");
         alum.setEdad(25);
         alum.setCif("cif");
-        alum.setTelefono_empresa("telefono_empresa");
+        alum.setTelefono_empresa("12345678");
         alum.setDireccion_empresa("direccion_empresa");
-
-        boolean resp = ad.Insert(alum);
+        alum.setId(1);
+        boolean resp = ad.Update(alum);
         if (resp) {
             System.out.println("Registro Guardado con Exito");
             System.out.println("-------------");

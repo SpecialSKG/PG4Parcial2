@@ -54,19 +54,19 @@
                                 <div class="input-field">
                                     <i class="material-icons prefix">folder_shared</i>
                                     <label for="cif">CIF</label>
-                                    <input type="text" name="cif" required>
+                                    <input type="text" name="cif">
                                 </div>
 
                                 <div class="input-field">
                                     <i class="material-icons prefix">contact_phone</i>
                                     <label for="telefono_empresa">Teléfono de la empresa</label>
-                                    <input type="text" name="telefono_empresa" required>
+                                    <input type="text" name="telefono_empresa">
                                 </div>
 
                                 <div class="input-field">
                                     <i class="material-icons prefix">business</i>
                                     <label for="direccion_empresa">Dirección de la empresa</label>
-                                    <input type="text" name="direccion_empresa" required>
+                                    <input type="text" name="direccion_empresa">
                                 </div>
                                 <br><br>
                                 <button class="waves-effect waves-orange btn" type="submit">Guardar</button>

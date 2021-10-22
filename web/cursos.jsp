@@ -19,7 +19,7 @@
                             <h3>Agregar curso</h3>
                             <a class="waves-effect waves-light" href="index.jsp">Inicio</a> / <a class="waves-effect waves-light" href="curso?action=selectAll">Cursos registrados</a>
                             <br><br><br>
-                            <form action="curso?action=insert" method="POST">
+                            <form action="curso?action=insertar" method="POST">
 
                                 <div class="input-field">
                                     <i class="material-icons prefix">school</i>
@@ -36,19 +36,19 @@
                                 <div class="input-field">
                                     <i class="material-icons prefix">access_time</i>
                                     <label for="hora_duracion">Duración</label>
-                                    <input type="text" name="hora_duracion" id="hora_duracion" required>
+                                    <input type="datetime-local" name="hora_duracion" id="hora_duracion" required>
                                 </div>
 
                                 <div class="input-field">
                                     <i class="material-icons prefix">date_range</i>
                                     <label for="fecha_inicio">Fecha de inicio</label>
-                                    <input type="text" name="fecha_inicio" id="fecha_inicio" required>
+                                    <input type="date" name="fecha_inicio" id="fecha_inicio" required>
                                 </div>
 
                                 <div class="input-field">
                                     <i class="material-icons prefix">date_range</i>
                                     <label for="fecha_fin">Fecha finalización</label>
-                                    <input type="text" name="fecha_fin" id="fecha_fin" required>
+                                    <input type="date" name="fecha_fin" id="fecha_fin" required>
                                 </div>
 
                                 <div class="input-field">

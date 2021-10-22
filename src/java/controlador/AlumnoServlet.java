@@ -101,7 +101,7 @@ public class AlumnoServlet extends HttpServlet {
         String direccion_empresa = request.getParameter("direccion_empresa");
 
         Alumno alum = new Alumno(id);
-        alum.setNombre(nombre);
+        alum.setDui(dui);
         alum.setDireccion(direccion);
         alum.setNombre(nombre);
         alum.setTelefono(telefono);
@@ -121,7 +121,7 @@ public class AlumnoServlet extends HttpServlet {
         request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
 
-        rd = request.getRequestDispatcher("/editarAlumno.jsp");
+        rd = request.getRequestDispatcher("/alumno.jsp");
         rd.forward(request, response);
     }
 

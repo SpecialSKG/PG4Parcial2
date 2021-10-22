@@ -69,7 +69,10 @@ public class CursoServlet extends HttpServlet {
         Curso c = new Curso(codigo, titulo, hora_duracion, fecha_inicio, fecha_fin, profe_dui, nombre, apellido, direccion, telefono);
         cd.insert(c);
 
-        response.sendRedirect(request.getContextPath() + "/curso?action=selectall");
+        lista = cd.selectAll();
+        request.setAttribute("lista", lista);
+        rd = request.getRequestDispatcher("/verCursos.jsp");
+        rd.forward(request, response);
     }
 
     protected void update(HttpServletRequest request, HttpServletResponse response)
@@ -77,6 +80,7 @@ public class CursoServlet extends HttpServlet {
         Curso c = new Curso();
         c.setId(Integer.parseInt(request.getParameter("id")));
         c.setCodigo(request.getParameter("codigo"));
+        c.setTitulo(request.getParameter("titulo"));
         c.setHoraDuracionString(request.getParameter("hora_duracion"));
         c.setFechaInicioString(request.getParameter("fecha_inicio"));
         c.setFechaFinString(request.getParameter("fecha_fin"));
@@ -100,7 +104,7 @@ public class CursoServlet extends HttpServlet {
             throws ServletException, IOException {
         lista = cd.selectAll();
         request.setAttribute("lista", lista);
-        rd = request.getRequestDispatcher("/mostrarCurso.jsp");
+        rd = request.getRequestDispatcher("/verCursos.jsp");
         rd.forward(request, response);
 
     }
@@ -109,8 +113,8 @@ public class CursoServlet extends HttpServlet {
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Curso c = cd.selectById(id);
-        request.setAttribute("curso", c);
-        rd = request.getRequestDispatcher("/updateCurso.jsp");
+        request.setAttribute("Curso", c);
+        rd = request.getRequestDispatcher("/editarCurso.jsp");
         rd.forward(request, response);
     }
 

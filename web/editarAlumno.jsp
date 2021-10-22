@@ -55,19 +55,19 @@
                                 <div class="input-field">
                                     <i class="material-icons prefix">folder_shared</i>
                                     <label for="cif">CIF</label>
-                                    <input type="text" name="cif" required value="${Alumno.cif}">
+                                    <input type="text" name="cif" value="${Alumno.cif}">
                                 </div>
 
                                 <div class="input-field">
                                     <i class="material-icons prefix">contact_phone</i>
                                     <label for="telefono_empresa">Teléfono de la empresa</label>
-                                    <input type="text" name="telefono_empresa" required value="${Alumno.telefono_empresa}">
+                                    <input type="text" name="telefono_empresa" value="${Alumno.telefono_empresa}">
                                 </div>
 
                                 <div class="input-field">
                                     <i class="material-icons prefix">business</i>
                                     <label for="direccion_empresa">Dirección de la empresa</label>
-                                    <input type="text" name="direccion_empresa" required value="${Alumno.direccion_empresa}">
+                                    <input type="text" name="direccion_empresa" value="${Alumno.direccion_empresa}">
                                 </div>
                                 <br><br>
                                 <input type="hidden" name="id" value="${Alumno.id}">

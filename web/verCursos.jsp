@@ -43,14 +43,14 @@
                                             <td><c:out value="${v.hora_duracion}" /></td>
                                             <td><c:out value="${v.fecha_inicio}" /></td>
                                             <td><c:out value="${v.fecha_fin}" /></td>
-                                            <td><c:out value="${v.dui_profe}" /></td>
+                                            <td><c:out value="${v.profe_dui}" /></td>
                                             <td><c:out value="${v.nombre}" /></td>
                                             <td><c:out value="${v.apellido}" /></td>
                                             <td><c:out value="${v.direccion}" /></td>
                                             <td><c:out value="${v.telefono}" /></td>
                                             <td>
-                                                <a href="Curso?action=delete&id=${v.id}">Eliminar</a>
-                                                <a href="Curso?action=selectbyid&id=${v.id}">Editar</a>
+                                                <a href="curso?action=delete&id=${v.id}">Eliminar</a>
+                                                <a href="curso?action=selectbyid&id=${v.id}">Editar</a>
                                             </td>
                                         </tr>
                                     </c:forEach>

@@ -42,9 +42,9 @@ public class Curso {
         this.titulo = titulo;
         
         try {
-            this.hora_duracion = new SimpleDateFormat("hh:mm:ss").parse(hora_duracion);
-            this.fecha_inicio = new SimpleDateFormat("yyyy-MM-dd' 'hh:mm:ss").parse(fecha_inicio);
-            this.fecha_fin = new SimpleDateFormat("yyyy-MM-dd' 'hh:mm:ss").parse(fecha_fin);
+            this.hora_duracion = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm").parse(hora_duracion);
+            this.fecha_inicio = new SimpleDateFormat("yyyy-MM-dd").parse(fecha_inicio);
+            this.fecha_fin = new SimpleDateFormat("yyyy-MM-dd").parse(fecha_fin);
         } catch (Exception e) {
             System.out.println("Error en el paseo de alguno de los tiempos formato de fechas son yyyy-MM-dd hh:mm:ss formato de hora hh:mm:ss: "+ e);
         }
@@ -104,7 +104,7 @@ public class Curso {
 
     public void setHoraDuracionString(String horaFecha) {
         try {
-            this.hora_duracion = new SimpleDateFormat("dd/MM/yyyy").parse(horaFecha);
+            this.hora_duracion = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm").parse(horaFecha);
         } catch (Exception e) {
             System.out.println("error al parsea, formato valido yyyy-MM-dd' 'hh:mm:ss " + e);
         }
@@ -119,12 +119,12 @@ public class Curso {
     }
     
     public String getFechaInicioString(){
-        return new SimpleDateFormat("dd/MM/yyyy").format(fecha_inicio);
+        return new SimpleDateFormat("yyyy-MM-dd").format(fecha_inicio);
     }
 
     public void setFechaInicioString(String fecha) {
         try {
-            this.fecha_inicio = new SimpleDateFormat("yyyy-MM-dd' 'hh:mm:ss").parse(fecha);
+            this.fecha_inicio = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
         } catch (Exception e) {
             System.out.println("error al parsea, formato valido yyyy-MM-dd' 'hh:mm:ss " + e);
         }
@@ -135,7 +135,7 @@ public class Curso {
     }
 
     public String getFechaFinString(){
-        return new SimpleDateFormat("yyyy-MM-dd' 'hh:mm:ss").format(fecha_fin);
+        return new SimpleDateFormat("yyyy-MM-dd").format(fecha_fin);
     }
     
     public Date getFecha_fin() {
@@ -144,7 +144,7 @@ public class Curso {
 
     public void setFechaFinString(String fecha) {
         try {
-            this.fecha_fin = new SimpleDateFormat("yyyy-MM-dd' 'hh:mm:ss").parse(fecha);
+            this.fecha_fin = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
         } catch (Exception e) {
             System.out.println("error al parsea, formato valido yyyy-MM-dd' 'hh:mm : " + e);
         }

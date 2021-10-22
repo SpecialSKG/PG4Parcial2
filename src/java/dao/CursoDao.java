@@ -54,6 +54,7 @@ public class CursoDao {
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
+            System.out.println(e);
             return false;
         }
     }
@@ -66,6 +67,7 @@ public class CursoDao {
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
+            System.out.println(e);
             return false;
         }
     }

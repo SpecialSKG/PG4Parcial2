@@ -36,19 +36,19 @@
                                 <div class="input-field">
                                     <i class="material-icons prefix">access_time</i>
                                     <label for="hora_duracion">Duración</label>
-                                    <input type="text" name="hora_duracion" id="hora_duracion" required value="${Curso.hora_duracion}">
+                                    <input type="datetime-local" name="hora_duracion" id="hora_duracion" required value="${Curso.hora_duracion}">
                                 </div>
 
                                 <div class="input-field">
                                     <i class="material-icons prefix">date_range</i>
                                     <label for="fecha_inicio">Fecha de inicio</label>
-                                    <input type="text" name="fecha_inicio" id="fecha_inicio" required value="${Curso.fecha_inicio}">
+                                    <input type="date" name="fecha_inicio" id="fecha_inicio" required value="${Curso.fecha_inicio}">
                                 </div>
 
                                 <div class="input-field">
                                     <i class="material-icons prefix">date_range</i>
                                     <label for="fecha_fin">Fecha finalización</label>
-                                    <input type="text" name="fecha_fin" id="fecha_fin" required value="${Curso.fecha_fin}">
+                                    <input type="date" name="fecha_fin" id="fecha_fin" required value="${Curso.fecha_fin}">
                                 </div>
 
                                 <div class="input-field">
@@ -80,7 +80,8 @@
                                     <label for="telefono">Teléfono</label>
                                     <input type="text" name="telefono" id="telefono" required value="${Curso.telefono}">
                                 </div>
-                                <br><br>     
+                                <br><br>  
+                                <input type="hidden" name="id" id="id" value="${Curso.getId()}">
                                 <button class="waves-effect waves-light btn" type="submit">Guardar</button>
 
                             </form>

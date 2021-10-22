@@ -46,8 +46,8 @@
                                     <span class="card-title"><strong>Notas</strong></span>
                                 </div>
                                 <div class="card-action">
-                                    <a class="waves-effect waves-light btn-small" href="notas.jsp"><i class="material-icons left">add</i>Registrar</a>
-                                    <a class="waves-effect waves-light btn-small red" href="nota?action=selectall"><i class="material-icons left">star</i>Ver notas</a>
+                                    
+                                    <a class="waves-effect waves-light btn-small red" href="notas?action=cursos"><i class="material-icons left">star</i>Ver notas</a>
                                 </div>
                             </div>
                         </div>
