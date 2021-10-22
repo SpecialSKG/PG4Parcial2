@@ -121,7 +121,7 @@ public class AlumnoServlet extends HttpServlet {
         request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
 
-        rd = request.getRequestDispatcher("/alumno.jsp");
+        rd = request.getRequestDispatcher("/verAlumnos.jsp");
         rd.forward(request, response);
     }
 
