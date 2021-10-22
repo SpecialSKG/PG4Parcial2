@@ -36,7 +36,7 @@
                                 <div class="input-field">
                                     <i class="material-icons prefix">access_time</i>
                                     <label for="hora_duracion">Duración</label>
-                                    <input type="datetime-local" name="hora_duracion" id="hora_duracion" required>
+                                    <input type="time" name="hora_duracion" id="hora_duracion" required>
                                 </div>
 
                                 <div class="input-field">

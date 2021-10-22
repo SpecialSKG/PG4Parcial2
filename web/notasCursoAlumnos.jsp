@@ -12,13 +12,13 @@
     <body>
 
         <div class="col-12 d-flex justify-content-center">
-            <div >CURSO ${curso.getTitulo()}</div> 
+            <div><h1>CURSO ${curso.getTitulo()}</h1></div> 
         </div>
         <div class="d-flex flex-row">
-            <a href="notas?action=cursos">volver al listado de cursos</a>
+            <a href="notas?action=cursos" class="btn">volver al listado de cursos</a>
         </div>
         <div class="col-12 d-flex justify-content-end">
-            <a href="notas?action=insertarcc&id=${curso.getId()}">Insertar un Nuevo Estudiante a este Curso</a> 
+            <a class="btn" href="notas?action=insertarcc&id=${curso.getId()}">Insertar un Nuevo Estudiante a este Curso</a> 
         </div>
         <c:choose>
             <c:when test="${validacion.equals('true')}">

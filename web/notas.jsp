@@ -19,6 +19,7 @@
     <body>
         <div class="center-align" >
             <h1 >CURSOS</h1>
+            <a class="waves-effect waves-light" href="index.jsp">Inicio</a>
         </div>
         <div class="d-flex flex-wrap align-content-center col-12">
             <c:forEach items="${lista}" var="o">

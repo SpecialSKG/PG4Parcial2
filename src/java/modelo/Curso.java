@@ -42,7 +42,7 @@ public class Curso {
         this.titulo = titulo;
         
         try {
-            this.hora_duracion = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm").parse(hora_duracion);
+            this.hora_duracion = new SimpleDateFormat("hh:mm").parse(hora_duracion);
             this.fecha_inicio = new SimpleDateFormat("yyyy-MM-dd").parse(fecha_inicio);
             this.fecha_fin = new SimpleDateFormat("yyyy-MM-dd").parse(fecha_fin);
         } catch (Exception e) {
@@ -99,12 +99,12 @@ public class Curso {
     }
     
     public String getHoraDuracionString() {
-        return new SimpleDateFormat("hh:mm:ss").format(this.hora_duracion);
+        return new SimpleDateFormat("hh:mm").format(this.hora_duracion);
     }
 
     public void setHoraDuracionString(String horaFecha) {
         try {
-            this.hora_duracion = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm").parse(horaFecha);
+            this.hora_duracion = new SimpleDateFormat("hh:mm").parse(horaFecha);
         } catch (Exception e) {
             System.out.println("error al parsea, formato valido yyyy-MM-dd' 'hh:mm:ss " + e);
         }

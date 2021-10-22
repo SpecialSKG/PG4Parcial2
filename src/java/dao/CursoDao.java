@@ -84,7 +84,7 @@ public class CursoDao {
                 c = new Curso(rs.getInt("id"));
                 c.setCodigo(rs.getString("codigo"));
                 c.setTitulo(rs.getString("titulo"));
-                c.setHora_duracion(rs.getDate("hora_duracion"));
+                c.setHora_duracion(rs.getTimestamp("hora_duracion"));
                 c.setFecha_inicio(rs.getDate("fecha_inicio"));
                 c.setFecha_fin(rs.getDate("fecha_fin"));
                 c.setProfe_dui(rs.getString("profe_dui"));
