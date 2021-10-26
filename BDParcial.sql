@@ -1,0 +1,37 @@
+CREATE DATABASE if NOT EXISTS pgracademia; USE pgracademia;
+CREATE TABLE alumno(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+dui VARCHAR(10) NOT NULL,
+direccion VARCHAR(150) NOT NULL,
+nombre VARCHAR(20) NOT NULL,
+telefono VARCHAR(10) NOT NULL,
+edad INT NOT NULL,
+cif VARCHAR(10) NULL,
+telefono_empresa VARCHAR(10) NULL,
+direccion_empresa VARCHAR(50) NULL
+);
+CREATE TABLE curso(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+codigo VARCHAR(10) NOT NULL,
+titulo VARCHAR(100) NOT NULL,
+hora_duracion TIME NOT NULL,
+fecha_inicio DATETIME NOT NULL,
+fecha_fin DATETIME NOT NULL,
+profe_dui VARCHAR(10) NOT NULL,
+nombre VARCHAR(20) NOT NULL,
+apellido VARCHAR(20) NOT NULL,
+direccion VARCHAR(150) NOT NULL,
+telefono VARCHAR(10) NOT NULL
+);
+CREATE TABLE nota(curso
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+alumno INT NOT NULL,
+curso INT NOT NULL,
+notas DOUBLE(4,2) NOT NULL, CONSTRAINT alumno FOREIGN KEY (alumno) REFERENCES alumno(id), CONSTRAINT curso FOREIGN KEY (curso) REFERENCES curso(id)
+);
+INSERT INTO `alumno` VALUES (1,'000001','PLAZA SESAMO 123','Don Chepe','1234-5678',10,'ABC','4321-8765','PLAZA SESAMO');
+INSERT INTO `alumno` VALUES (2,'000002','PLAZA San Carlos','Josesito','1234-5678',10,'','','');
+INSERT INTO `curso` VALUES (1,'CA','Clase A','02:00','2021-10-20','2022-04-29','1234','Carlos','Gabriel','Soyapango','1234-5679');
+INSERT INTO `curso` VALUES (2,'CB','Clase B','01:30','2021-10-20','2022-05-29','5678','Maribel','Juarez','Santa Tecla','1234-5679');
+INSERT INTO `nota` VALUES (1,1,1,9.3);
+INSERT INTO `nota` VALUES (1,2,2,8.7);

@@ -44,6 +44,7 @@ public class AlumnoServlet extends HttpServlet {
 
     protected void insert(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        /*
         String dui = request.getParameter("dui");
         String direccion = request.getParameter("direccion");
         String nombre = request.getParameter("nombre");
@@ -54,7 +55,7 @@ public class AlumnoServlet extends HttpServlet {
         String direccion_empresa = request.getParameter("direccion_empresa");
 
         Alumno alum = new Alumno(0);
-        alum.setNombre(nombre);
+        alum.setDui(dui);
         alum.setDireccion(direccion);
         alum.setNombre(nombre);
         alum.setTelefono(telefono);
@@ -62,7 +63,16 @@ public class AlumnoServlet extends HttpServlet {
         alum.setCif(cif);
         alum.setTelefono_empresa(telefono_empresa);
         alum.setDireccion_empresa(direccion_empresa);
-
+*/
+        Alumno alum = new Alumno(0);
+        alum.setDui(request.getParameter("dui"));
+        alum.setDireccion(request.getParameter("direccion"));
+        alum.setNombre(request.getParameter("nombre"));
+        alum.setTelefono(request.getParameter("telefono"));
+        alum.setEdad(Integer.parseInt(request.getParameter("edad")));
+        alum.setCif(request.getParameter("cif"));
+        alum.setTelefono_empresa(request.getParameter("telefono_empresa"));
+        alum.setDireccion_empresa(request.getParameter("direccion_empresa"));
         resp = alumD.Insert(alum);
         if (resp) {
             msg = "Registro Guardado";
@@ -74,7 +84,7 @@ public class AlumnoServlet extends HttpServlet {
         request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
 
-        rd = request.getRequestDispatcher("/index.jsp");
+        rd = request.getRequestDispatcher("/alumnos.jsp");
         rd.forward(request, response);
     }
 
@@ -91,7 +101,7 @@ public class AlumnoServlet extends HttpServlet {
         String direccion_empresa = request.getParameter("direccion_empresa");
 
         Alumno alum = new Alumno(id);
-        alum.setNombre(nombre);
+        alum.setDui(dui);
         alum.setDireccion(direccion);
         alum.setNombre(nombre);
         alum.setTelefono(telefono);
@@ -111,7 +121,7 @@ public class AlumnoServlet extends HttpServlet {
         request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
 
-        rd = request.getRequestDispatcher("/index.jsp");
+        rd = request.getRequestDispatcher("/verAlumnos.jsp");
         rd.forward(request, response);
     }
 
@@ -130,7 +140,7 @@ public class AlumnoServlet extends HttpServlet {
         request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
 
-        rd = request.getRequestDispatcher("/index.jsp");
+        rd = request.getRequestDispatcher("/verAlumnos.jsp");
         rd.forward(request, response);
     }
 
@@ -139,7 +149,7 @@ public class AlumnoServlet extends HttpServlet {
         lista = alumD.selectAll();
         request.setAttribute("lista", lista);
 
-        rd = request.getRequestDispatcher("/index.jsp");
+        rd = request.getRequestDispatcher("/verAlumnos.jsp");
         rd.forward(request, response);
     }
 
@@ -149,7 +159,7 @@ public class AlumnoServlet extends HttpServlet {
         lista = alumD.selectId(id);
         request.setAttribute("lista", lista);
 
-        rd = request.getRequestDispatcher("/index.jsp");
+        rd = request.getRequestDispatcher("/editarAlumno.jsp");
         rd.forward(request, response);
     }
 
