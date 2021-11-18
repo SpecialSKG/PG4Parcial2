@@ -12,6 +12,10 @@
         <servlet-name>CursoServlet</servlet-name>
         <servlet-class>controlador.CursoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UsuarioServlet</servlet-name>
+        <servlet-class>controlador.UsuarioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AlumnoServlet</servlet-name>
         <url-pattern>/Alumno</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>CursoServlet</servlet-name>
         <url-pattern>/curso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuarioServlet</servlet-name>
+        <url-pattern>/usuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
