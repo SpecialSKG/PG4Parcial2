@@ -17,18 +17,14 @@ public class CursoDao {
 
     public boolean insert(Curso c) {
         try {
-            String sql = "Insert into curso (codigo,titulo,hora_duracion,fecha_inicio,fecha_fin,profe_dui,nombre,apellido,direccion,telefono) values(?,?,?,?,?,?,?,?,?,?);";
+            String sql = "Insert into curso (codigo,titulo,hora_duracion,fecha_inicio,fecha_fin,profesor) values(?,?,?,?,?,?);";
             PreparedStatement ps = conn.Conectar().prepareStatement(sql);
             ps.setString(1, c.getCodigo());
             ps.setString(2, c.getTitulo());
             ps.setString(3, c.getHoraDuracionString());
             ps.setString(4, c.getFechaInicioString());
             ps.setString(5, c.getFechaFinString());
-            ps.setString(6, c.getProfe_dui());
-            ps.setString(7, c.getNombre());
-            ps.setString(8, c.getApellido());
-            ps.setString(9, c.getDireccion());
-            ps.setString(10, c.getTelefono());
+            ps.setInt(6, c.getProfe());
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
@@ -38,19 +34,15 @@ public class CursoDao {
 
     public boolean update(Curso c) {
         try {
-            String sql = "update curso set codigo=?,titulo=?,hora_duracion=?,fecha_inicio=?,fecha_fin=?,profe_dui=?,nombre=?,apellido=?,direccion=?,telefono=? where id=?; ";
+            String sql = "update curso set codigo=?,titulo=?,hora_duracion=?,fecha_inicio=?,fecha_fin=?,profesor=? where id=?; ";
             PreparedStatement ps = conn.Conectar().prepareStatement(sql);
             ps.setString(1, c.getCodigo());
             ps.setString(2, c.getTitulo());
             ps.setString(3, c.getHoraDuracionString());
             ps.setString(4, c.getFechaInicioString());
             ps.setString(5, c.getFechaFinString());
-            ps.setString(6, c.getProfe_dui());
-            ps.setString(7, c.getNombre());
-            ps.setString(8, c.getApellido());
-            ps.setString(9, c.getDireccion());
-            ps.setString(10, c.getTelefono());
-            ps.setInt(11, c.getId());
+            ps.setInt(6, c.getProfe());
+            ps.setInt(7, c.getId());
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
@@ -87,11 +79,7 @@ public class CursoDao {
                 c.setHora_duracion(rs.getTimestamp("hora_duracion"));
                 c.setFecha_inicio(rs.getDate("fecha_inicio"));
                 c.setFecha_fin(rs.getDate("fecha_fin"));
-                c.setProfe_dui(rs.getString("profe_dui"));
-                c.setNombre(rs.getString("nombre"));
-                c.setApellido(rs.getString("apellido"));
-                c.setDireccion(rs.getString("direccion"));
-                c.setTelefono(rs.getString("telefono"));
+                c.setProfe(rs.getInt("profesor"));
                 lista.add(c);
             }
             return lista;
@@ -114,11 +102,7 @@ public class CursoDao {
                 c.setHora_duracion(rs.getDate("hora_duracion"));
                 c.setFecha_inicio(rs.getDate("fecha_inicio"));
                 c.setFecha_fin(rs.getDate("fecha_fin"));
-                c.setProfe_dui(rs.getString("profe_dui"));
-                c.setNombre(rs.getString("nombre"));
-                c.setApellido(rs.getString("apellido"));
-                c.setDireccion(rs.getString("direccion"));
-                c.setTelefono(rs.getString("telefono"));
+                c.setProfe(rs.getInt("profesor"));
             }
         } catch (Exception e) {
             System.out.println("Error " + e);

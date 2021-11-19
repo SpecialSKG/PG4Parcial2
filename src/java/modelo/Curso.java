@@ -11,11 +11,7 @@ public class Curso {
     private Date hora_duracion;
     private Date fecha_inicio;
     private Date fecha_fin;
-    private String profe_dui;
-    private String nombre;
-    private String apellido;
-    private String direccion;
-    private String telefono;
+    private int profe;
 
     public Curso() {
     }
@@ -24,20 +20,16 @@ public class Curso {
         this.id = id;
     }
 
-    public Curso(String codigo, String titulo, Date hora_duracion, Date fecha_inicio, Date fecha_fin, String profe_dui, String nombre, String apellido, String direccion, String telefono) {
+    public Curso(String codigo, String titulo, Date hora_duracion, Date fecha_inicio, Date fecha_fin, int profe) {
         this.codigo = codigo;
         this.titulo = titulo;
         this.hora_duracion = hora_duracion;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
-        this.profe_dui = profe_dui;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.direccion = direccion;
-        this.telefono = telefono;
+        this.profe = profe;
     }
     
-    public Curso(String codigo, String titulo, String hora_duracion, String fecha_inicio, String fecha_fin, String profe_dui, String nombre, String apellido, String direccion, String telefono) {
+    public Curso(String codigo, String titulo, String hora_duracion, String fecha_inicio, String fecha_fin, int profe) {
         this.codigo = codigo;
         this.titulo = titulo;
         
@@ -49,26 +41,18 @@ public class Curso {
             System.out.println("Error en el paseo de alguno de los tiempos formato de fechas son yyyy-MM-dd hh:mm:ss formato de hora hh:mm:ss: "+ e);
         }
         
-        this.profe_dui = profe_dui;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.direccion = direccion;
-        this.telefono = telefono;
+        this.profe = profe;
     }
 
-    public Curso(int id, String codigo, String titulo, Date hora_duracion, Date fecha_inicio, Date fecha_fin, String profe_dui, String nombre, String apellido, String direccion, String telefono) {
+    public Curso(int id, String codigo, String titulo, Date hora_duracion, Date fecha_inicio, Date fecha_fin, int profe) {
         this.id = id;
         this.codigo = codigo;
         this.titulo = titulo;
         this.hora_duracion = hora_duracion;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
-        this.profe_dui = profe_dui;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.direccion = direccion;
-        this.telefono = telefono;
-    }
+        this.profe = profe;
+        }
 
     public int getId() {
         return id;
@@ -154,44 +138,13 @@ public class Curso {
         this.fecha_fin = fecha_fin;
     }
 
-    public String getProfe_dui() {
-        return profe_dui;
+    public int getProfe() {
+        return profe;
     }
 
-    public void setProfe_dui(String profe_dui) {
-        this.profe_dui = profe_dui;
+    public void setProfe(int profe) {
+        this.profe = profe;
     }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
+    
 
 }
