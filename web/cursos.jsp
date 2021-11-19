@@ -19,72 +19,67 @@
 
                         <div class="form-group">
                             <label for="dui">Codigo</label>
-                            <input type="text" name="dui" class="form-control" id="dui">
+                            <input type="text" name="codigo" class="form-control" id="codigo">
                         </div>
 
                         <div class="form-group">
                             <label for="nombre">Titulo</label>
-                            <input type="text" name="nombre" class="form-control" id="nombre">
+                            <input type="text" name="titulo" class="form-control" id="titulo">
                         </div>
 
                         <div class="form-group">
                             <label for="apellido">Hora de Duración</label>
-                            <input type="text" name="apellido" class="form-control" id="apellido">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="direccion">Fecha de Inicio</label>
-                            <input type="text" name="direccion" class="form-control" id="direccion">
-                        </div>
-
-                                <div class="input-field">
-                                    <i class="material-icons prefix">date_range</i>
-                                    <label for="fecha_inicio">Fecha de inicio</label>
-                                    <input type="date" name="fecha_inicio" id="fecha_inicio" required>
-                                </div>
-
-                                <div class="input-field">
-                                    <i class="material-icons prefix">date_range</i>
-                                    <label for="fecha_fin">Fecha finalización</label>
-                                    <input type="date" name="fecha_fin" id="fecha_fin" required>
-                                </div>
-
-                                <div class="row col-12 form-group">
-                                    <div class="col-12 col-md-6">
-                                        Profesor:
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                        <select id="profesor" name="profesor" class="form-control">
-                                            <c:forEach items="${profes}" var="p">
-                                                <option value="${p.idprofesor}">
-                                                    ${p.nombre}
-                                                </option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <br>       
-                                <button class="waves-effect waves-light btn" type="submit">Guardar</button>
-
-                            </form>
-                            <br>
-                            <center>${msg}</center>
+                            <input type="text" name="hora_duracion" class="form-control" id="hora_duracion">
                         </div>
                         
-                        <div class="form-group">
-                            <label for="telefono">Profesor</label>
-                            <input type="text" name="telefono" class="form-control" id="telefono">
+                        <div class="input-field">
+                            <i class="material-icons prefix">date_range</i>
+                            <label for="fecha_inicio">Fecha de inicio</label>
+                            <input type="date" name="fecha_inicio" id="fecha_inicio" required>
                         </div>
 
-                        <button class="btn btn-success" type="submit">Guardar</button>
+                        <div class="input-field">
+                            <i class="material-icons prefix">date_range</i>
+                            <label for="fecha_fin">Fecha finalización</label>
+                            <input type="date" name="fecha_fin" id="fecha_fin" required>
+                        </div>
+
+                        <div class="row col-12 form-group">
+                            <div class="col-12 col-md-6">
+                                Profesor:
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <select id="profesor" name="profesor" class="form-control">
+                                    <c:forEach items="${profes}" var="p">
+                                        <option value="${p.idprofesor}">
+                                            ${p.nombre}
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
+
+                        <br>       
+                        <button class="waves-effect waves-light btn" type="submit">Guardar</button>
+
                     </form>
                     <br>
                     <center>${msg}</center>
                 </div>
+
+                <div class="form-group">
+                    <label for="telefono">Profesor</label>
+                    <input type="text" name="telefono" class="form-control" id="telefono">
+                </div>
+
+                <button class="btn btn-success" type="submit">Guardar</button>
+                </form>
+                <br>
+                <center>${msg}</center>
             </div>
         </div>
-    </body>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
 </html>

@@ -98,7 +98,7 @@
                                         <a href="curso?action=selectAll">Ver cursos</a>
                                     </li>
                                     <li>
-                                        <a href="cursos.jsp">Agregar curso</a>
+                                        <a href="curso?action=insert">Agregar curso</a>
                                     </li>
                                 </ul>
                             </li>

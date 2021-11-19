@@ -23,7 +23,6 @@
                                 <th scope="col">Hora Duración</th>
                                 <th scope="col">Fecha de Inicio</th>
                                 <th scope="col">Fecha de Finalizacion</th>
-                                <th scope="col">Profesor</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,7 +34,6 @@
                                     <td><c:out value="${v.hora_duracion}" /></td>
                                     <td><c:out value="${v.fecha_inicio}" /></td>
                                     <td><c:out value="${v.fecha_fin}" /></td>
-                                    <td><c:out value="${v.profesor}" /></td>
                                     <td>
                                         <a class="btn btn-danger" href="curso?action=eliminar&idcurso=${v.id}"><i class="bi bi-trash"></i>&nbsp;Eliminar</a>
                                         <a class="btn btn-info" href="curso?action=seleccionarId&idcurso=${v.id}"><i class="bi bi-pen"></i>&nbsp;Editar</a>

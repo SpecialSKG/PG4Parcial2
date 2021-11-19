@@ -28,6 +28,9 @@ public class CursoDao {
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
+            System.out.println("/*/*/*/*/*/*/");
+            System.out.println(e);
+            System.out.println("/*/*/*/*/*/*/");
             return false;
         }
     }

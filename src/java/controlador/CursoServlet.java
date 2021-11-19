@@ -66,7 +66,7 @@ public class CursoServlet extends HttpServlet {
         String hora_duracion = request.getParameter("hora_duracion");
         String fecha_inicio = request.getParameter("fecha_inicio");
         String fecha_fin = request.getParameter("fecha_fin");
-        int profe = Integer.parseInt(request.getParameter("profe_dui"));
+        int profe = Integer.parseInt(request.getParameter("profesor"));
         //Curso c = new Curso(codigo, titulo, hora_duracion, fecha_inicio, fecha_fin, profe_dui, nombre, apellido, direccion, telefono);
         Curso c = new Curso(codigo, titulo, hora_duracion, fecha_inicio, fecha_fin, new Profesor(profe));
         cd.insert(c);
