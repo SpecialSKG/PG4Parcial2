@@ -46,12 +46,17 @@
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <!-- /Menu-->
-                            <p/>
+                            <li>
+                                <a href="inicio.jsp">Dashboard</a>
+                            </li>
                             <li>
                                 <a href="notas.jsp"><i class="fa fa-files-o fa-fw"></i> Notas<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="verNotas.jsp">Editar Notas</a>
+                                        <a href="verNotas.jsp">Ver notas</a>
+                                    </li>
+                                    <li>
+                                        <a href="notas.jsp">Agregar nota</a>
                                     </li>
                                 </ul>
                             </li>
@@ -59,15 +64,21 @@
                                 <a href="alumnos.jsp"><i class="fa fa-files-o fa-fw"></i> Alumnos<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="verAlumnos.jsp">Editar Alumnos</a>
+                                        <a href="Alumno?action=selectAll">Ver alumnos</a>
+                                    </li>
+                                    <li>
+                                        <a href="alumnos.jsp">Agregar alumno</a>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="profesores.jsp"><i class="fa fa-files-o fa-fw"></i> Profesor<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-files-o fa-fw"></i> Profesores<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="#">Editar Profesor</a>
+                                        <a href="profesor?action=seleccionarTodo">Ver profesores</a>
+                                    </li>
+                                    <li>
+                                        <a href="profesores.jsp">Agregar profesor</a>
                                     </li>
                                 </ul>
                             </li>
@@ -75,7 +86,10 @@
                                 <a href="#"><i class="fa fa-files-o fa-fw"></i> Cursos<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="blank.html">Editar Cursos</a>
+                                        <a href="curso?action=selectAll">Ver cursos</a>
+                                    </li>
+                                    <li>
+                                        <a href="cursos.jsp">Agregar curso</a>
                                     </li>
                                 </ul>
                             </li>
@@ -190,39 +204,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /.row -->
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                                    <div class="pull-right">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default btn-xs dropdown-toggle"
-                                                    data-toggle="dropdown">
-                                                Actions
-                                                <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu pull-right" role="menu">
-                                                <li><a href="#">Action</a>
-                                                </li>
-                                                <li><a href="#">Another action</a>
-                                                </li>
-                                                <li><a href="#">Something else here</a>
-                                                </li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">Separated link</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <div id="morris-area-chart"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -231,54 +212,5 @@
         <script src="js/jquery.min.js" type="text/javascript"></script>
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min_1.js" type="text/javascript"></script>
-
-
-        <!-- AQui es la parte anterior que estaba
-        <div class="valign-wrapper" style="width:100%;height:100%;position: absolute;">
-            <div class="valign" style="width:100%;">
-                <div class="container">
-                    <div class="row">
-                        <h1>Academia de cursos</h1>
-                        <div class="col s12 m4">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="img/alumnos.jpg">
-                                    <span class="card-title"><strong>Alumnos</strong></span>
-                                </div>
-                                <div class="card-action">
-                                    <a class="waves-effect waves-light btn-small" href="alumnos.jsp"><i class="material-icons left">add</i>Registrar</a>
-                                    <a class="waves-effect waves-light btn-small red" href="Alumno?action=selectAll"><i class="material-icons left">people</i>Ver alumnos</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col s12 m4">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="img/cursos.jpg">
-                                    <span class="card-title"><strong>Cursos</strong></span>
-                                </div>
-                                <div class="card-action">
-                                    <a class="waves-effect waves-light btn-small" href="cursos.jsp"><i class="material-icons left">add</i>Registrar</a>
-                                    <a class="waves-effect waves-light btn-small red" href="curso?action=selectall"><i class="material-icons left">school</i>Ver cursos</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col s12 m4">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="img/notas.jpg">
-                                    <span class="card-title"><strong>Notas</strong></span>
-                                </div>
-                                <div class="card-action">
-
-                                    <a class="waves-effect waves-light btn-small red" href="notas?action=cursos"><i class="material-icons left">star</i>Ver notas</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="js/materialize.js" type="text/javascript"></script>-->
     </body>
 </html>

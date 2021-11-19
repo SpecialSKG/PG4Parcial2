@@ -9,3 +9,4 @@ src/java/conexion/Conexion.java*
 /nbproject/private/
 /nbproject/private/private.properties*
 /nbproject/private/private.xml*
+web/WEB-INF/web.xml
