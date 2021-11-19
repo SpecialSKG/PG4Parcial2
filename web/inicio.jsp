@@ -14,15 +14,9 @@
         <%
             HttpSession sesion = request.getSession();
             String usuario;
-            System.out.println("/*/*/*/* ");
-            System.out.println(sesion.getAttribute("usuario"));
-            System.out.println("/*/*/*/* ");
             if (sesion.getAttribute("usuario") != null) {
                 usuario = sesion.getAttribute("usuario").toString();
-            } else {
-                //response.sendRedirect("login.jsp");
-                request.getRequestDispatcher("/index.jsp");
-            }
+            
         %>
         
         <div class="valign-wrapper" style="width:100%;height:100%;position: absolute;">
@@ -73,3 +67,9 @@
         <script src="js/materialize.js" type="text/javascript"></script>
     </body>
 </html>
+<%
+ }else {
+                response.sendRedirect("index.jsp");
+            }
+
+%>
