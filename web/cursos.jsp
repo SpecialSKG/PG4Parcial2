@@ -37,9 +37,39 @@
                             <input type="text" name="direccion" class="form-control" id="direccion">
                         </div>
 
-                        <div class="form-group">
-                            <label for="telefono">Fecha de Finalización</label>
-                            <input type="text" name="telefono" class="form-control" id="telefono">
+                                <div class="input-field">
+                                    <i class="material-icons prefix">date_range</i>
+                                    <label for="fecha_inicio">Fecha de inicio</label>
+                                    <input type="date" name="fecha_inicio" id="fecha_inicio" required>
+                                </div>
+
+                                <div class="input-field">
+                                    <i class="material-icons prefix">date_range</i>
+                                    <label for="fecha_fin">Fecha finalización</label>
+                                    <input type="date" name="fecha_fin" id="fecha_fin" required>
+                                </div>
+
+                                <div class="row col-12 form-group">
+                                    <div class="col-12 col-md-6">
+                                        Profesor:
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <select id="profesor" name="profesor" class="form-control">
+                                            <c:forEach items="${profes}" var="p">
+                                                <option value="${p.idprofesor}">
+                                                    ${p.nombre}
+                                                </option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <br>       
+                                <button class="waves-effect waves-light btn" type="submit">Guardar</button>
+
+                            </form>
+                            <br>
+                            <center>${msg}</center>
                         </div>
                         
                         <div class="form-group">

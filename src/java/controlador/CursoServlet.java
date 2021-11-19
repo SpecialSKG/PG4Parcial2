@@ -119,7 +119,7 @@ public class CursoServlet extends HttpServlet {
     private void goInsert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProfesorDao pr = new ProfesorDao(conn);
         List<Profesor> profes = pr.selectAll();
-        request.setAttribute("lista", profes);
+        request.setAttribute("profes", profes);
         rd = request.getRequestDispatcher("/cursos.jsp");
         rd.forward(request, response);
     }
