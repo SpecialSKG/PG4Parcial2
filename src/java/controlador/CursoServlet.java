@@ -2,6 +2,7 @@ package controlador;
 
 import conexion.Conexion;
 import dao.CursoDao;
+import dao.ProfesorDao;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -38,6 +39,9 @@ public class CursoServlet extends HttpServlet {
                 break;
             case "selectbyid":
                 selectById(request, response);
+                break;
+            case "insert":
+                goInsert(request, response);
                 break;
         }
 
@@ -109,6 +113,14 @@ public class CursoServlet extends HttpServlet {
         Curso c = cd.selectById(id);
         request.setAttribute("Curso", c);
         rd = request.getRequestDispatcher("/editarCurso.jsp");
+        rd.forward(request, response);
+    }
+
+    private void goInsert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ProfesorDao pr = new ProfesorDao(conn);
+        List<Profesor> profes = pr.selectAll();
+        request.setAttribute("lista", profes);
+        rd = request.getRequestDispatcher("/cursos.jsp");
         rd.forward(request, response);
     }
 
