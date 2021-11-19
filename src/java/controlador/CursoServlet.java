@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Curso;
+import modelo.Profesor;
 
 public class CursoServlet extends HttpServlet {
 
@@ -61,12 +62,9 @@ public class CursoServlet extends HttpServlet {
         String hora_duracion = request.getParameter("hora_duracion");
         String fecha_inicio = request.getParameter("fecha_inicio");
         String fecha_fin = request.getParameter("fecha_fin");
-        String profe_dui = request.getParameter("profe_dui");
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String direccion = request.getParameter("direccion");
-        String telefono = request.getParameter("telefono");
-        Curso c = new Curso(codigo, titulo, hora_duracion, fecha_inicio, fecha_fin, profe_dui, nombre, apellido, direccion, telefono);
+        int profe = Integer.parseInt(request.getParameter("profe_dui"));
+        //Curso c = new Curso(codigo, titulo, hora_duracion, fecha_inicio, fecha_fin, profe_dui, nombre, apellido, direccion, telefono);
+        Curso c = new Curso(codigo, titulo, hora_duracion, fecha_inicio, fecha_fin, new Profesor(profe));
         cd.insert(c);
 
         lista = cd.selectAll();
@@ -84,11 +82,7 @@ public class CursoServlet extends HttpServlet {
         c.setHoraDuracionString(request.getParameter("hora_duracion"));
         c.setFechaInicioString(request.getParameter("fecha_inicio"));
         c.setFechaFinString(request.getParameter("fecha_fin"));
-        c.setProfe_dui(request.getParameter("profe_dui"));
-        c.setNombre(request.getParameter("nombre"));
-        c.setApellido(request.getParameter("apellido"));
-        c.setDireccion(request.getParameter("direccion"));
-        c.setTelefono(request.getParameter("telefono"));
+        c.setProfe(new Profesor(Integer.parseInt(request.getParameter("profe_dui"))));
         cd.update(c);
         response.sendRedirect(request.getContextPath() + "/curso?action=selectall");
     }

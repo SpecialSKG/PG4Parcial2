@@ -11,7 +11,7 @@ public class Curso {
     private Date hora_duracion;
     private Date fecha_inicio;
     private Date fecha_fin;
-    private int profe;
+    private Profesor profe;
 
     public Curso() {
     }
@@ -20,7 +20,7 @@ public class Curso {
         this.id = id;
     }
 
-    public Curso(String codigo, String titulo, Date hora_duracion, Date fecha_inicio, Date fecha_fin, int profe) {
+    public Curso(String codigo, String titulo, Date hora_duracion, Date fecha_inicio, Date fecha_fin, Profesor profe) {
         this.codigo = codigo;
         this.titulo = titulo;
         this.hora_duracion = hora_duracion;
@@ -29,7 +29,7 @@ public class Curso {
         this.profe = profe;
     }
     
-    public Curso(String codigo, String titulo, String hora_duracion, String fecha_inicio, String fecha_fin, int profe) {
+    public Curso(String codigo, String titulo, String hora_duracion, String fecha_inicio, String fecha_fin, Profesor profe) {
         this.codigo = codigo;
         this.titulo = titulo;
         
@@ -44,7 +44,7 @@ public class Curso {
         this.profe = profe;
     }
 
-    public Curso(int id, String codigo, String titulo, Date hora_duracion, Date fecha_inicio, Date fecha_fin, int profe) {
+    public Curso(int id, String codigo, String titulo, Date hora_duracion, Date fecha_inicio, Date fecha_fin, Profesor profe) {
         this.id = id;
         this.codigo = codigo;
         this.titulo = titulo;
@@ -138,13 +138,15 @@ public class Curso {
         this.fecha_fin = fecha_fin;
     }
 
-    public int getProfe() {
+    public Profesor getProfe() {
         return profe;
     }
 
-    public void setProfe(int profe) {
+    public void setProfe(Profesor profe) {
         this.profe = profe;
     }
+
+    
     
 
 }
