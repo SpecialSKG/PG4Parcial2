@@ -34,7 +34,7 @@
                                     <span class="card-title"><strong>Cursos</strong></span>
                                 </div>
                                 <div class="card-action">
-                                    <a class="waves-effect waves-light btn-small" href="cursos.jsp"><i class="material-icons left">add</i>Registrar</a>
+                                    <a class="waves-effect waves-light btn-small" href="curso?action=insert"><i class="material-icons left">add</i>Registrar</a>
                                     <a class="waves-effect waves-light btn-small red" href="curso?action=selectall"><i class="material-icons left">school</i>Ver cursos</a>
                                 </div>
                             </div>

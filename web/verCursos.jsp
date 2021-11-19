@@ -16,7 +16,7 @@
                     <div class="row">
                         <h1>Cursos registrados</h1>
                         <div class="col s6 offset-s3">                            
-                            <a class="waves-effect waves-light" href="index.jsp">Inicio</a> / <a class="waves-effect waves-light" href="cursos.jsp">Registrar cursos</a>
+                            <a class="waves-effect waves-light" href="curso?action=insert">Inicio</a> / <a class="waves-effect waves-light" href="cursos.jsp">Registrar cursos</a>
                             <table class="responsive-table">
                                 <thead>
                                     <tr>

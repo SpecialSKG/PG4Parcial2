@@ -51,35 +51,21 @@
                                     <input type="date" name="fecha_fin" id="fecha_fin" required>
                                 </div>
 
-                                <div class="input-field">
-                                    <i class="material-icons prefix">credit_card</i>
-                                    <label for="profe_dui">DUI del profesor</label>
-                                    <input type="text" name="profe_dui" id="profe_dui" required>
+                                <div class="row col-12 form-group">
+                                    <div class="col-12 col-md-6">
+                                        Profesor:
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <select id="profesor" name="profesor" class="form-control">
+                                            <c:forEach items="${profes}" var="p">
+                                                <option value="${p.idprofesor}">
+                                                    ${p.nombre}
+                                                </option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
                                 </div>
 
-                                <div class="input-field">
-                                    <i class="material-icons prefix">person</i>
-                                    <label for="nombre">Nombre del profesor</label>
-                                    <input type="text" name="nombre" id="nombre" required>
-                                </div>
-
-                                <div class="input-field">
-                                    <i class="material-icons prefix">person</i>
-                                    <label for="apellido">Apellidos</label>
-                                    <input type="text" name="apellido" id="apellido" required>
-                                </div>
-                                
-                                <div class="input-field">
-                                    <i class="material-icons prefix">location_on</i>
-                                    <label for="direccion">Dirección</label>
-                                    <input type="text" name="direccion" id="direccion" required>
-                                </div>
-                                
-                                <div class="input-field">
-                                    <i class="material-icons prefix">local_phone</i>
-                                    <label for="telefono">Teléfono</label>
-                                    <input type="text" name="telefono" id="telefono" required>
-                                </div>
                                 <br>       
                                 <button class="waves-effect waves-light btn" type="submit">Guardar</button>
 
