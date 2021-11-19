@@ -10,6 +10,21 @@
         <title>GRUPO 2 - Academia de cursos</title>
     </head>
     <body>
+
+        <%
+            HttpSession sesion = request.getSession();
+            String usuario;
+            System.out.println("/*/*/*/* ");
+            System.out.println(sesion.getAttribute("usuario"));
+            System.out.println("/*/*/*/* ");
+            if (sesion.getAttribute("usuario") != null) {
+                usuario = sesion.getAttribute("usuario").toString();
+            } else {
+                //response.sendRedirect("login.jsp");
+                request.getRequestDispatcher("/index.jsp");
+            }
+        %>
+        
         <div class="valign-wrapper" style="width:100%;height:100%;position: absolute;">
             <div class="valign" style="width:100%;">
                 <div class="container">
@@ -46,7 +61,7 @@
                                     <span class="card-title"><strong>Notas</strong></span>
                                 </div>
                                 <div class="card-action">
-                                    
+
                                     <a class="waves-effect waves-light btn-small red" href="notas?action=cursos"><i class="material-icons left">star</i>Ver notas</a>
                                 </div>
                             </div>

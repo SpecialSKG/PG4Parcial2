@@ -13,7 +13,7 @@ public class UsuarioDao {
     }
 
     public boolean login(String usuario, String clave) {
-        String sql = "select usuario, clave, tipo_usuario from usuario where usuario = ? and clave = ? and tipo_usuario = ? ";
+        String sql = "select usuario, clave from usuario where usuario = ? and clave = ?";
         try {
             PreparedStatement ps = conn.Conectar().prepareStatement(sql);
             ps.setString(1, usuario);
