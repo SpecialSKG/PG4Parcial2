@@ -40,6 +40,10 @@
         <servlet-name>ProfesorServlet</servlet-name>
         <url-pattern>/profesor</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuarioServlet</servlet-name>
+        <url-pattern>/usuario</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
