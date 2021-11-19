@@ -16,6 +16,14 @@
         <servlet-name>ProfesorServlet</servlet-name>
         <servlet-class>controlador.ProfesorServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UsuarioServlet</servlet-name>
+        <servlet-class>controlador.UsuarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TipoServlet</servlet-name>
+        <servlet-class>controlador.TipoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AlumnoServlet</servlet-name>
         <url-pattern>/Alumno</url-pattern>
