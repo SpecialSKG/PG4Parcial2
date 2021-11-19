@@ -47,9 +47,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-</body>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
+    </body>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
 </html>

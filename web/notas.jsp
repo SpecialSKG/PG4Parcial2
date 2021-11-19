@@ -73,8 +73,8 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Notas</h1> <a class="waves-effect waves-light"
-                                                                  href="index.jsp">Inicio</a>
+                            <h1 class="page-header">Notas</h1> 
+                            <a class="waves-effect waves-light" href="index.jsp">Inicio</a>
                         </div> <!-- /.col-lg-12 -->
                     </div> <!-- /.row -->
                     <div class="row">
