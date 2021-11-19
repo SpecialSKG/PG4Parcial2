@@ -13,6 +13,15 @@
     </head>
     <body>
 
+        <%
+            HttpSession sesion = request.getSession();
+            String usuario;
+            if (sesion.getAttribute("usuario") != null) {
+                usuario = sesion.getAttribute("usuario").toString();
+            
+        %>
+        
+
         <div id="wrapper">
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -214,3 +223,9 @@
         <script src="js/bootstrap.min_1.js" type="text/javascript"></script>
     </body>
 </html>
+<%
+ }else {
+                response.sendRedirect("index.jsp");
+            }
+
+%>

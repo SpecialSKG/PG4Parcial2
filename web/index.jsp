@@ -17,17 +17,16 @@
             <div class="shape"></div>
             <div class="shape"></div>
         </div>
-        <form>
-            <!--<h3>Academia de Cursos</h3>-->
-            <h3>Login</h3>
+        <form action="usuario?action=login" method="POST" >
+            <h3>Academia</h3>
 
             <label for="username">Usuario</label>
-            <input type="text" placeholder="Ingrese un usuario" id="username">
+            <input type="text" placeholder="Ingrese un usuario" id="usuario" name="usuario">
 
             <label for="password">Contraseña</label>
-            <input type="password" placeholder="Ingrese una contraseña" id="password">
+            <input type="password" placeholder="Ingrese una contraseña" id="clave" name="clave">
 
-            <button>Iniciar Sesión</button>
+            <button type="submit">Iniciar Sesión</button>
         </form>
         <a href="inicio.jsp">LLLL</a>
     </body>
