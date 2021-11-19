@@ -12,7 +12,6 @@
         <title>Academia de cursos</title>
     </head>
     <body>
-
         <%
             HttpSession sesion = request.getSession();
             String usuario;
@@ -26,13 +25,8 @@
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">ACADEMIA DE CURSOS</a>
+                    <a class="navbar-brand" href="inicio.html">ACADEMIA DE CURSOS</a>
                 </div>
-
-
-                <ul class="nav navbar-nav navbar-left navbar-top-links">
-                    <li><a href="#"><i class="fa fa-home fa-fw"></i> INICIO</a></li>
-                </ul>
 
                 <ul class="nav navbar-right navbar-top-links">
 
@@ -44,7 +38,7 @@
                             <li><a href="#"><i class="fa fa-user fa-fw"></i>Ver Perfil</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <li><a href="usuario?action=logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -70,7 +64,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="alumnos.jsp"><i class="fa fa-files-o fa-fw"></i> Alumnos<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-files-o fa-fw"></i> Alumnos<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a href="Alumno?action=selectAll">Ver alumnos</a>
