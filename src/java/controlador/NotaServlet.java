@@ -66,8 +66,8 @@ public class NotaServlet extends HttpServlet {
                 break;
             case "eliminar":
                 eliminar(request, response);
-                break;    
-                
+                break;
+
         }
 
     }
@@ -139,7 +139,7 @@ public class NotaServlet extends HttpServlet {
     }
 
     private void actualizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Nota notaUpdate = new Nota(Integer.parseInt(request.getParameter("id")),Integer.parseInt(request.getParameter("curso")), Integer.parseInt(request.getParameter("alumno")), Double.parseDouble(request.getParameter("nota")));// new Nota(curso, alumno, nota);
+        Nota notaUpdate = new Nota(Integer.parseInt(request.getParameter("id")), Integer.parseInt(request.getParameter("curso")), Integer.parseInt(request.getParameter("alumno")), Double.parseDouble(request.getParameter("nota")));// new Nota(curso, alumno, nota);
         nd.update(notaUpdate);
         Curso nota = cd.selectById(Integer.parseInt(request.getParameter("curso")));
         ln = nd.selectAllWhereCurso(Integer.parseInt(request.getParameter("curso")));
@@ -161,9 +161,7 @@ public class NotaServlet extends HttpServlet {
         request.setAttribute("curso", nota);
         rd = request.getRequestDispatcher("notasCursoAlumnos.jsp");
         rd.forward(request, response);
-        
+
     }
-    
-    
 
 }

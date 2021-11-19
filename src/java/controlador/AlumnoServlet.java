@@ -63,7 +63,7 @@ public class AlumnoServlet extends HttpServlet {
         alum.setCif(cif);
         alum.setTelefono_empresa(telefono_empresa);
         alum.setDireccion_empresa(direccion_empresa);
-*/
+         */
         Alumno alum = new Alumno(0);
         alum.setDui(request.getParameter("dui"));
         alum.setDireccion(request.getParameter("direccion"));

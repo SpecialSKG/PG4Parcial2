@@ -29,8 +29,7 @@ public class AlumnoDao {
             ps.setString(8, alum.getDireccion_empresa());
             ps.executeUpdate();
             return true;
-        } catch (Exception e) 
-        {
+        } catch (Exception e) {
             return false;
         }
     }
@@ -51,7 +50,7 @@ public class AlumnoDao {
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
-            
+
             System.out.println(e);
             return false;
         }
