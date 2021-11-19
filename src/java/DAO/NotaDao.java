@@ -78,12 +78,12 @@ public class NotaDao {
     public Nota selectById(int id) {
         Nota nota = new Nota();
         try {
-            String sql = "SELECT a.id as ida, a.dui as duia, a.direccion as direcciona, a.nombre as nombrea,a.telefono as telefonoa," +
-"a.edad as edada, a.cif as cifa, a.telefono_empresa as telefono_empresaa, a.direccion_empresa as direccion_empresaa, " +
-"c.id as idc, c.codigo as codigoc, c.titulo as tituloc, c.hora_duracion as hora_duracionc, c.fecha_inicio as fecha_inicioc, " +
-"c.fecha_fin as fecha_finc, c.profesor as profesor, n.id as idn, n.alumno as alumnon, n.curso as curson, n.notas as nota, " +
-" p.dui as profe_duic, p.nombre as nombrec, p.apellido as apellidoc, p.direccion as direccionc, p.telefono as telefonoc, p.idprofesor as profesor " +
-"FROM nota n inner join alumno a on n.alumno = a.id inner join curso c  on n.curso = c.id inner join profesor p on p.idprofesor = c.profesor where n.id = ?";
+            String sql = "SELECT a.id as ida, a.dui as duia, a.direccion as direcciona, a.nombre as nombrea,a.telefono as telefonoa,"
+                    + "a.edad as edada, a.cif as cifa, a.telefono_empresa as telefono_empresaa, a.direccion_empresa as direccion_empresaa, "
+                    + "c.id as idc, c.codigo as codigoc, c.titulo as tituloc, c.hora_duracion as hora_duracionc, c.fecha_inicio as fecha_inicioc, "
+                    + "c.fecha_fin as fecha_finc, c.profesor as profesor, n.id as idn, n.alumno as alumnon, n.curso as curson, n.notas as nota, "
+                    + " p.dui as profe_duic, p.nombre as nombrec, p.apellido as apellidoc, p.direccion as direccionc, p.telefono as telefonoc, p.idprofesor as profesor "
+                    + "FROM nota n inner join alumno a on n.alumno = a.id inner join curso c  on n.curso = c.id inner join profesor p on p.idprofesor = c.profesor where n.id = ?";
             PreparedStatement ps = cn.Conectar().prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -159,7 +159,7 @@ public class NotaDao {
         }
         return ln;
     }
-    
+
     public List<Nota> selectAllWhereCurso(int curso) {
         List<Nota> ln = new LinkedList<Nota>();
         try {
@@ -168,7 +168,7 @@ public class NotaDao {
                     + "c.id as idc, c.codigo as codigoc, c.titulo as tituloc, c.hora_duracion as hora_duracionc, c.fecha_inicio as fecha_inicioc, "
                     + "c.fecha_fin as fecha_finc, c.profe_dui as profe_duic, c.nombre as nombrec, c.apellido as apellidoc, c.direccion as direccionc, "
                     + "c.telefono as telefonoc, n.id as idn, n.alumno as alumnon, n.curso as curson, n.notas as nota FROM nota n inner join alumno a on n.alumno = a.id "
-                    + "inner join curso c  on n.curso = c.id where c.id = "+curso;
+                    + "inner join curso c  on n.curso = c.id where c.id = " + curso;
             PreparedStatement ps = cn.Conectar().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -230,4 +230,4 @@ n.notas as nota
 FROM nota n
 inner join alumno a on n.alumno = a.id
 inner join curso c  on n.curso = c.id
-*/
+ */

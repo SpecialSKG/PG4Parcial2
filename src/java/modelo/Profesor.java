@@ -81,5 +81,4 @@ public class Profesor {
         this.telefono = telefono;
     }
 
-    
 }

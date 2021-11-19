@@ -73,7 +73,6 @@ public class ProfesorServlet extends HttpServlet {
         prof.setApellido(apellido);
         prof.setDireccion(direccion);
         prof.setTelefono(telefono);
-        
 
         resp = profeD.update(prof);
         if (resp) {

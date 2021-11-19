@@ -15,7 +15,7 @@ public class Curso {
 
     public Curso() {
     }
-    
+
     public Curso(int id) {
         this.id = id;
     }
@@ -28,19 +28,19 @@ public class Curso {
         this.fecha_fin = fecha_fin;
         this.profe = profe;
     }
-    
+
     public Curso(String codigo, String titulo, String hora_duracion, String fecha_inicio, String fecha_fin, int profe) {
         this.codigo = codigo;
         this.titulo = titulo;
-        
+
         try {
             this.hora_duracion = new SimpleDateFormat("hh:mm").parse(hora_duracion);
             this.fecha_inicio = new SimpleDateFormat("yyyy-MM-dd").parse(fecha_inicio);
             this.fecha_fin = new SimpleDateFormat("yyyy-MM-dd").parse(fecha_fin);
         } catch (Exception e) {
-            System.out.println("Error en el paseo de alguno de los tiempos formato de fechas son yyyy-MM-dd hh:mm:ss formato de hora hh:mm:ss: "+ e);
+            System.out.println("Error en el paseo de alguno de los tiempos formato de fechas son yyyy-MM-dd hh:mm:ss formato de hora hh:mm:ss: " + e);
         }
-        
+
         this.profe = profe;
     }
 
@@ -52,7 +52,7 @@ public class Curso {
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
         this.profe = profe;
-        }
+    }
 
     public int getId() {
         return id;
@@ -81,7 +81,7 @@ public class Curso {
     public Date getHora_duracion() {
         return hora_duracion;
     }
-    
+
     public String getHoraDuracionString() {
         return new SimpleDateFormat("hh:mm").format(this.hora_duracion);
     }
@@ -101,8 +101,8 @@ public class Curso {
     public Date getFecha_inicio() {
         return fecha_inicio;
     }
-    
-    public String getFechaInicioString(){
+
+    public String getFechaInicioString() {
         return new SimpleDateFormat("yyyy-MM-dd").format(fecha_inicio);
     }
 
@@ -118,10 +118,10 @@ public class Curso {
         this.fecha_inicio = fecha_inicio;
     }
 
-    public String getFechaFinString(){
+    public String getFechaFinString() {
         return new SimpleDateFormat("yyyy-MM-dd").format(fecha_fin);
     }
-    
+
     public Date getFecha_fin() {
         return fecha_fin;
     }
@@ -145,6 +145,5 @@ public class Curso {
     public void setProfe(int profe) {
         this.profe = profe;
     }
-    
 
 }
