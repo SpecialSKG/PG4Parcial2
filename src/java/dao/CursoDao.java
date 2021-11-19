@@ -24,7 +24,7 @@ public class CursoDao {
             ps.setString(3, c.getHoraDuracionString());
             ps.setString(4, c.getFechaInicioString());
             ps.setString(5, c.getFechaFinString());
-            ps.setInt(6, c.getProfe());
+            ps.setInt(6, c.getProfe().getIdprofesor());
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
@@ -41,7 +41,7 @@ public class CursoDao {
             ps.setString(3, c.getHoraDuracionString());
             ps.setString(4, c.getFechaInicioString());
             ps.setString(5, c.getFechaFinString());
-            ps.setInt(6, c.getProfe());
+            ps.setInt(6, c.getProfe().getIdprofesor());
             ps.setInt(7, c.getId());
             ps.executeUpdate();
             return true;
@@ -66,7 +66,7 @@ public class CursoDao {
 
     public List<Curso> selectAll() {
         try {
-            String sql = "select * from curso;";
+            String sql = "SELECT * FROM curso c inner join profesor p on c.profesor = p.idprofesor;";
             PreparedStatement ps = conn.Conectar().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
@@ -79,7 +79,7 @@ public class CursoDao {
                 c.setHora_duracion(rs.getTimestamp("hora_duracion"));
                 c.setFecha_inicio(rs.getDate("fecha_inicio"));
                 c.setFecha_fin(rs.getDate("fecha_fin"));
-                c.setProfe(rs.getInt("profesor"));
+                c.setProfe(new Profesor(rs.getInt("idprofesor"),rs.getInt("dui"),rs.getString("nombre"),rs.getString("apellido"),rs.getString("direccion"), rs.getString("telefono")));
                 lista.add(c);
             }
             return lista;
@@ -90,7 +90,7 @@ public class CursoDao {
 
     public Curso selectById(int id) {
         Curso c = new Curso();
-        String sql = "select * from curso where id = ?;";
+        String sql = "SELECT * FROM curso c inner join profesor p on c.profesor = p.idprofesor where c.id = ?;";
         try {
             PreparedStatement ps = conn.Conectar().prepareStatement(sql);
             ps.setInt(1, id);
@@ -102,7 +102,7 @@ public class CursoDao {
                 c.setHora_duracion(rs.getDate("hora_duracion"));
                 c.setFecha_inicio(rs.getDate("fecha_inicio"));
                 c.setFecha_fin(rs.getDate("fecha_fin"));
-                c.setProfe(rs.getInt("profesor"));
+                c.setProfe(new Profesor(rs.getInt("idprofesor"),rs.getInt("dui"),rs.getString("nombre"),rs.getString("apellido"),rs.getString("direccion"), rs.getString("telefono")));
             }
         } catch (Exception e) {
             System.out.println("Error " + e);
