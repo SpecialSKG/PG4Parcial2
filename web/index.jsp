@@ -18,7 +18,8 @@
             <div class="shape"></div>
         </div>
         <form>
-            <h3>Academia</h3>
+            <!--<h3>Academia de Cursos</h3>-->
+            <h3>Login</h3>
 
             <label for="username">Usuario</label>
             <input type="text" placeholder="Ingrese un usuario" id="username">
@@ -28,5 +29,6 @@
 
             <button>Iniciar Sesión</button>
         </form>
+        <a href="inicio.jsp">LLLL</a>
     </body>
 </html>
