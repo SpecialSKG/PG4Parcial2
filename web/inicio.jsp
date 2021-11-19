@@ -17,9 +17,9 @@
             String usuario;
             if (sesion.getAttribute("usuario") != null) {
                 usuario = sesion.getAttribute("usuario").toString();
-            
+
         %>
-        
+
 
         <div id="wrapper">
             <!-- Navigation -->
@@ -53,7 +53,10 @@
                                 <a href="inicio.jsp">Dashboard</a>
                             </li>
                             <li>
-                                <a href="notas.jsp"><i class="fa fa-files-o fa-fw"></i> Notas<span class="fa arrow"></span></a>
+                                <a href="notas.jsp">
+                                    <i class="fa fa-files-o fa-fw"></i> Notas
+                                    <span class="fa arrow"></span>
+                                </a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a href="verNotas.jsp">Ver notas</a>
@@ -64,7 +67,10 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-files-o fa-fw"></i> Alumnos<span class="fa arrow"></span></a>
+                                <a href="#">
+                                    <i class="fa fa-files-o fa-fw"></i> Alumnos
+                                    <span class="fa arrow"></span>
+                                </a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a href="Alumno?action=selectAll">Ver alumnos</a>
@@ -75,7 +81,10 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-files-o fa-fw"></i> Profesores<span class="fa arrow"></span></a>
+                                <a href="#">
+                                    <i class="fa fa-files-o fa-fw"></i> Profesores
+                                    <span class="fa arrow"></span>
+                                </a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a href="profesor?action=seleccionarTodo">Ver profesores</a>
@@ -86,7 +95,10 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-files-o fa-fw"></i> Cursos<span class="fa arrow"></span></a>
+                                <a href="#">
+                                    <i class="fa fa-files-o fa-fw"></i> Cursos
+                                    <span class="fa arrow"></span>
+                                </a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a href="curso?action=selectAll">Ver cursos</a>
@@ -96,7 +108,20 @@
                                     </li>
                                 </ul>
                             </li>
-
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-files-o fa-fw"></i> Usuarios
+                                    <span class="fa arrow"></span>
+                                </a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="usuario?action=selectAll">Ver Usuarios</a>
+                                    </li>
+                                    <li>
+                                        <a href="usuario?action=goInsert">Agregar Usuarios</a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -217,9 +242,8 @@
         <script src="js/bootstrap.min_1.js" type="text/javascript"></script>
     </body>
 </html>
-<%
- }else {
-                response.sendRedirect("index.jsp");
-            }
+<%    } else {
+        response.sendRedirect("index.jsp");
+    }
 
 %>
