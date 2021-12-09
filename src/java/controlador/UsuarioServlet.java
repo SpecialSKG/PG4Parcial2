@@ -75,6 +75,7 @@ public class UsuarioServlet extends HttpServlet {
         String clave = request.getParameter("clave");
         respuesta = userd.login(usuario, clave);
         if (respuesta) {
+            GlobalUsuario.setUSUARIO(usuario);
             HttpSession session = request.getSession();
             session.setAttribute("usuario", usuario);
             request.getRequestDispatcher("/inicio.jsp").forward(request, response);
@@ -87,8 +88,9 @@ public class UsuarioServlet extends HttpServlet {
 
     protected void logout(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        session.invalidate();
+            HttpSession session = request.getSession();
+            session.invalidate();
+            GlobalUsuario.setUSUARIO("");
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 

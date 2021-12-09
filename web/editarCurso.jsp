@@ -4,8 +4,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/materialize.css" rel="stylesheet"/>
         <link href="css/main.css" rel="stylesheet"/>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title>Editar curso</title>
     </head>
@@ -17,69 +17,51 @@
 
                         <div class="col s6 offset-s3">
                             <h3>Editar curso</h3>
-                            <a class="waves-effect waves-light" href="index.jsp">Inicio</a> / <a class="waves-effect waves-light" href="Curso?action=selectAll">Cursos registrados</a>
+                            <a class="waves-effect waves-light" href="inicio.jsp">Inicio</a> / <a class="waves-effect waves-light" href="Curso?action=selectAll">Cursos registrados</a>
                             <br><br><br>
                             <form action="curso?action=update" method="POST">
 
-                                <div class="input-field">
+                                <div class="form-group">
                                     <i class="material-icons prefix">school</i>
                                     <label for="codigo">Código del curso</label>
-                                    <input type="text" name="codigo" id="codigo" required value="${Curso.codigo}">
+                                    <input class="form-control" type="text" name="codigo" id="codigo" required value="${Curso.codigo}">
                                 </div>
 
-                                <div class="input-field">
+                                <div class="form-group">
                                     <i class="material-icons prefix">edit</i>
                                     <label for="titulo">Título</label>
-                                    <input type="text" name="titulo" id="titulo" required value="${Curso.titulo}">
+                                    <input class="form-control" type="text" name="titulo" id="titulo" required value="${Curso.titulo}">
                                 </div>
 
-                                <div class="input-field">
+                                <div class="form-group">
                                     <i class="material-icons prefix">access_time</i>
                                     <label for="hora_duracion">Duración</label>
-                                    <input type="datetime-local" name="hora_duracion" id="hora_duracion" required value="${Curso.hora_duracion}">
+                                    <input class="form-control" type="text" placeholder="hh:mm" name="hora_duracion" id="hora_duracion" required value="${Curso.getHoraDuracionString()}">
                                 </div>
 
-                                <div class="input-field">
+                                <div class="form-group">
                                     <i class="material-icons prefix">date_range</i>
                                     <label for="fecha_inicio">Fecha de inicio</label>
-                                    <input type="date" name="fecha_inicio" id="fecha_inicio" required value="${Curso.fecha_inicio}">
+                                    <input class="form-control" type="date" name="fecha_inicio" id="fecha_inicio" required value="${Curso.fecha_inicio}">
                                 </div>
 
-                                <div class="input-field">
+                                <div class="form-group">
                                     <i class="material-icons prefix">date_range</i>
                                     <label for="fecha_fin">Fecha finalización</label>
-                                    <input type="date" name="fecha_fin" id="fecha_fin" required value="${Curso.fecha_fin}">
+                                    <input  class="form-control" type="date" name="fecha_fin" id="fecha_fin" required value="${Curso.fecha_fin}">
                                 </div>
 
-                                <div class="input-field">
-                                    <i class="material-icons prefix">credit_card</i>
-                                    <label for="profe_dui">DUI del profesor</label>
-                                    <input type="text" name="profe_dui" id="profe_dui" required value="${Curso.profe_dui}">
+                                <div class="form-group">
+                                    <i class="material-icons prefix">school</i>
+                                    <label for="fecha_fin">Fecha finalización</label>
+                                    <select class="form-control form-control-sm" name="profesor" id="profesor">
+                                        <option value="${Curso.profe.idprofesor}">${Curso.profe.nombre}</option>
+                                        <c:forEach var="profe" items="${profes}">
+                                            <option value="${profe.idprofesor}">${profe.nombre}</option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
-
-                                <div class="input-field">
-                                    <i class="material-icons prefix">person</i>
-                                    <label for="nombre">Nombre del profesor</label>
-                                    <input type="text" name="nombre" id="nombre" required value="${Curso.nombre}">
-                                </div>
-
-                                <div class="input-field">
-                                    <i class="material-icons prefix">person</i>
-                                    <label for="apellido">Apellidos</label>
-                                    <input type="text" name="apellido" id="apellido" required value="${Curso.apellido}">
-                                </div>
-                                
-                                <div class="input-field">
-                                    <i class="material-icons prefix">location_on</i>
-                                    <label for="direccion">Dirección</label>
-                                    <input type="text" name="direccion" id="direccion" required value="${Curso.direccion}">
-                                </div>
-                                
-                                <div class="input-field">
-                                    <i class="material-icons prefix">local_phone</i>
-                                    <label for="telefono">Teléfono</label>
-                                    <input type="text" name="telefono" id="telefono" required value="${Curso.telefono}">
-                                </div>
+                               
                                 <br><br>  
                                 <input type="hidden" name="id" id="id" value="${Curso.getId()}">
                                 <button class="waves-effect waves-light btn" type="submit">Guardar</button>

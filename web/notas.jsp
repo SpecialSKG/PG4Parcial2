@@ -40,8 +40,7 @@
                             <li> <a href="notas.jsp"><i class="fa fa-files-o fa-fw"></i> Notas<span
                                         class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                    <li> <a href="verNotas.jsp">Ver notas</a> </li>
-                                    <li> <a href="notas.jsp">Agregar nota</a> </li>
+                                    <li> <a href="notas?action=cursos">Ver notas</a> </li>
                                 </ul>
                             </li>
                             <li> <a href="alumnos.jsp"><i class="fa fa-files-o fa-fw"></i> Alumnos<span
@@ -74,7 +73,6 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">Notas</h1> 
-                            <a class="waves-effect waves-light" href="index.jsp">Inicio</a>
                         </div> <!-- /.col-lg-12 -->
                     </div> <!-- /.row -->
                     <div class="row">
@@ -82,13 +80,13 @@
                             <c:forEach items="${lista}" var="o">
                                 <div class="col-12 col-md-6 col-lg-4 p-1">
                                     <div class="col-12 m-0">
-                                        <div class="card blue-grey darken-1">
-                                            <div class="card-content white-text">
-                                                <div class="d-flex justify-content-between">
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading">
+                                                <div class="d-flex justify-content-between  text-right">
                                                     <div class="card-title">${o.getTitulo()}</div>
                                                     <div class="card-title">${o.getId()}</div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 p-3">
                                                     <div class="row mb-0">
                                                         <div class="col-6">codigo</div>
                                                         <div class="col-6">${o.getCodigo()}</div>

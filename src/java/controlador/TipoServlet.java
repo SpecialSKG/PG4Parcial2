@@ -22,6 +22,7 @@ public class TipoServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //request.setAttribute("usuario", USUARIO);
         String action = request.getParameter("action");
         switch (action) {
             case "insert":

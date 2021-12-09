@@ -54,6 +54,8 @@ public class Curso {
         this.profe = profe;
     }
 
+    
+
     public int getId() {
         return id;
     }

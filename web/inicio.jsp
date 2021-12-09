@@ -59,10 +59,7 @@
                                 </a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="verNotas.jsp">Ver notas</a>
-                                    </li>
-                                    <li>
-                                        <a href="notas.jsp">Agregar nota</a>
+                                        <a href="notas?action=cursos">Ver notas</a>
                                     </li>
                                 </ul>
                             </li>
@@ -101,7 +98,7 @@
                                 </a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="curso?action=selectAll">Ver cursos</a>
+                                        <a href="curso?action=selectall">Ver cursos</a>
                                     </li>
                                     <li>
                                         <a href="curso?action=insert">Agregar curso</a>

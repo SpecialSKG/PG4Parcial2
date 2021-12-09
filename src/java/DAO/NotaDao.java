@@ -96,9 +96,9 @@ public class NotaDao {
                                 rs.getInt("idc"),
                                 rs.getString("codigoc"),
                                 rs.getString("tituloc"),
-                                new SimpleDateFormat("hh:mm:ss").parse(rs.getString("hora_duracionc")),
-                                new SimpleDateFormat("yyyy-MM-dd' 'hh:mm:ss").parse(rs.getString("fecha_inicioc")),
-                                new SimpleDateFormat("yyyy-MM-dd' 'hh:mm:ss").parse(rs.getString("fecha_finc")),
+                                rs.getDate("hora_duracionc"),
+                                rs.getDate("fecha_inicioc"),
+                                rs.getDate("fecha_finc"),
                                 new Profesor(rs.getInt("profesor"), rs.getInt("profe_duic"), rs.getString("nombrec"),rs.getString("apellidoc"),rs.getString("direccionc"),rs.getString("telefonoc"))
                         )
                         ,new Alumno(
@@ -194,9 +194,9 @@ public class NotaDao {
                                 rs.getInt("idc"),
                                 rs.getString("codigoc"),
                                 rs.getString("tituloc"),
-                                new SimpleDateFormat("hh:mm:ss").parse(rs.getString("hora_duracionc")),
-                                new SimpleDateFormat("yyyy-MM-dd' 'hh:mm:ss").parse(rs.getString("fecha_inicioc")),
-                                new SimpleDateFormat("yyyy-MM-dd' 'hh:mm:ss").parse(rs.getString("fecha_finc")),
+                                rs.getDate("hora_duracionc"),
+                                rs.getDate("fecha_inicioc"),
+                                rs.getDate("fecha_finc"),
                                 new Profesor(
                                         rs.getInt("profesor"), 
                                         rs.getInt("profe_duic"), 
