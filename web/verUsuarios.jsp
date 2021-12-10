@@ -136,7 +136,7 @@
                                 <a class="btn btn-primary mb-5" href="inicio.jsp">
                                     <i class="bi bi-house"></i>&nbsp;Inicio
                                 </a> 
-                                <a class="btn btn-info mb-5" href="usuarios.jsp">
+                                <a class="btn btn-info mb-5" href="usuario?action=goInsert">
                                     <i class="bi bi-person-plus"></i>&nbsp;Registrar usuarios
                                 </a>
                                 <table class="table table-hover">
@@ -155,7 +155,7 @@
                                                 <td><c:out value="${v.id}" /></td>
                                                 <td><c:out value="${v.usuario}" /></td>
                                                 <td><c:out value="${v.clave}" /></td>
-                                                <td><c:out value="${v.tipo_usuario }" /></td>
+                                                <td><c:out value="${v.tipo_usuario.getTipo()}" /></td>
                                                 <td>
                                                     <a class="btn btn-danger" href="usuario?action=delete&id=${v.id}"><i class="bi bi-trash"></i>&nbsp;Eliminar</a>
                                                     <a class="btn btn-info" href="usuario?action=selectId&id=${v.id}"><i class="bi bi-pen"></i>&nbsp;Editar</a>

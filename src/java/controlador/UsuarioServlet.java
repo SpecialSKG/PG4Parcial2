@@ -104,19 +104,20 @@ public class UsuarioServlet extends HttpServlet {
         Usuario user = new Usuario(0);
         user.setUsuario(request.getParameter("usuario"));
         user.setClave(request.getParameter("clave"));
-        //user.setTipo_usuario(tipo_usuario);
+        user.setTipo_usuario(new Tipo_Usuario(tipo_usuario));
         respuesta = userd.insert(user);
         if (respuesta) {
             msj = "registro insertado";
         } else {
             msj = "registro No insertado";
         }
+        System.out.println(msj);
         //lista = userd.selectAll();
         HttpSession session = request.getSession();
         session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("msj", msj);
         request.setAttribute("lista", lista);
-        rd = request.getRequestDispatcher("/index.jsp");
+        rd = request.getRequestDispatcher("/inicio.jsp");
         rd.forward(request, response);
 
     }

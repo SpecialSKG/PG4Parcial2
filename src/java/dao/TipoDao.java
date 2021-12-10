@@ -63,12 +63,11 @@ public class TipoDao {
             Tipo_Usuario tp;
             List<Tipo_Usuario> lista = new LinkedList<>();
             while (rs.next()) {
-                tp = new Tipo_Usuario(rs.getInt("id"));
-                tp.setTipo(rs.getString("tipo"));
-                lista.add(tp);
+                lista.add(new Tipo_Usuario(rs.getInt("id"), rs.getString("tipo")));
             }
             return lista;
         } catch (Exception e) {
+            System.out.println(e);
             return null;
         }
     }

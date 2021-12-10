@@ -73,21 +73,21 @@ public class UsuarioDao {
     }
 
     public List<Usuario> selectAll() {
-        String sql = "select * from usuario";
+        String sql = "select u.id as idu, u.usuario as usuario, u.clave as clave, u.tipo_usuario as tipo_usuario, t.id as idt, t.tipo as tipo from usuario u inner join tipo_usuario t on u.tipo_usuario = t.id";
         try {
             PreparedStatement ps = conn.Conectar().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-
-            Usuario user;
-            Tipo_Usuario tipou;
-
             List<Usuario> lista = new LinkedList<>();
             while (rs.next()) {
-                tipou = new Tipo_Usuario(rs.getInt("id"));
-                user = new Usuario(rs.getInt("id"));
-                user.setUsuario("usuario");
-                user.setClave("clave");
-                user.setTipo_usuario(tipou);
+                Usuario user;
+                Tipo_Usuario tipou;
+                user = new Usuario(rs.getInt("idu"), 
+                        rs.getString("usuario"), 
+                        rs.getString("clave"),
+                        new Tipo_Usuario(
+                                rs.getInt("idt"),
+                                rs.getString("tipo"))
+                );       
                 lista.add(user);
             }
             return lista;

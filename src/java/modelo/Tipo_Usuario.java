@@ -5,6 +5,11 @@ public class Tipo_Usuario {
     private int id;
     private String tipo;
 
+    public Tipo_Usuario(int id, String tipo) {
+        this.id = id;
+        this.tipo = tipo;
+    }
+    
     public Tipo_Usuario() {
     }
 

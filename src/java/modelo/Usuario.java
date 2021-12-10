@@ -7,6 +7,19 @@ public class Usuario {
     private String clave;
     private Tipo_Usuario tipo_usuario;
 
+    public Usuario(int id, String usuario, String clave, Tipo_Usuario tipo_usuario) {
+        this.id = id;
+        this.usuario = usuario;
+        this.clave = clave;
+        this.tipo_usuario = tipo_usuario;
+    }
+
+    public Usuario(String usuario, String clave, Tipo_Usuario tipo_usuario) {
+        this.usuario = usuario;
+        this.clave = clave;
+        this.tipo_usuario = tipo_usuario;
+    }
+
     public Usuario(int id) {
         this.id = id;
     }
