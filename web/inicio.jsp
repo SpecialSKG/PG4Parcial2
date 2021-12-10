@@ -144,7 +144,7 @@
                                             <i class="fa fa-comments fa-5x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <div class="huge">AC</div>
+                                            <div class="huge">Reporte De Cursos</div>
                                             <div>Reporte de Notas</div>
                                         </div>
                                     </div>

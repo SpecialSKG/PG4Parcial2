@@ -4,6 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/materialize.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/bootstrap.min.css" rel="stylesheet"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
         <link href="css/main.css" rel="stylesheet"/>
@@ -14,7 +15,7 @@
             <div class="row">
                 <h1>Agregar un Curso</h1>
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <a class="btn btn-primary mb-5" href="inicio.jsp"><i class="bi bi-house"></i>&nbsp;Inicio</a> <a class="btn btn-info mb-5" href="cursos?action=seleccionarTodo"><i class="bi bi-person-check-fill"></i>&nbsp;Cursos registrados</a>
+                    <a class="btn btn-primary mb-5" href="inicio.jsp"><i class="bi bi-house"></i>&nbsp;Inicio</a> <a class="btn btn-info mb-5" href="curso?action=selectall"><i class="bi bi-person-check-fill"></i>&nbsp;Cursos registrados</a>
                     <form action="curso?action=insertar" method="POST">
 
                         <div class="form-group">
@@ -33,13 +34,11 @@
                         </div>
                         
                         <div class="input-field">
-                            <i class="material-icons prefix">date_range</i>
                             <label for="fecha_inicio">Fecha de inicio</label>
                             <input type="date" name="fecha_inicio" id="fecha_inicio" required>
                         </div>
 
                         <div class="input-field">
-                            <i class="material-icons prefix">date_range</i>
                             <label for="fecha_fin">Fecha finalización</label>
                             <input type="date" name="fecha_fin" id="fecha_fin" required>
                         </div>
@@ -66,13 +65,6 @@
                     <br>
                     <center>${msg}</center>
                 </div>
-
-                <div class="form-group">
-                    <label for="telefono">Profesor</label>
-                    <input type="text" name="telefono" class="form-control" id="telefono">
-                </div>
-
-                <button class="btn btn-success" type="submit">Guardar</button>
                 </form>
                 <br>
                 <center>${msg}</center>

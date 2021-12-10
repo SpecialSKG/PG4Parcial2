@@ -156,7 +156,7 @@
                                                 <td><c:out value="${v.id}" /></td>
                                                 <td><c:out value="${v.codigo}" /></td>
                                                 <td><c:out value="${v.titulo}" /></td>
-                                                <td><c:out value="${v.hora_duracion}" /></td>
+                                                <td><c:out value="${v.getHoraDuracionString()}" /></td>
                                                 <td><c:out value="${v.fecha_inicio}" /></td>
                                                 <td><c:out value="${v.fecha_fin}" /></td>
                                                 <td>

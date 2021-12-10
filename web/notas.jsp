@@ -78,13 +78,12 @@
                     <div class="row">
                         <div class="d-flex flex-wrap align-content-center col-12">
                             <c:forEach items="${lista}" var="o">
-                                <div class="col-12 col-md-6 col-lg-4 p-1" style="height: 150px !important">
+                                <div class="col-12 col-md-6 col-lg-4 p-1" style="height: 150px !important; margin-bottom: 100px">
                                     <div class="col-12 m-0">
                                         <div class="panel panel-primary">
                                             <div class="panel-heading" style="padding-left: 50px !important">
                                                 <div class="d-flex justify-content-between  text-right">
                                                     <div class="card-title"><h1>${o.getTitulo()}</h1></div>
-                                                    <div class="card-title">${o.getId()}</div>
                                                 </div>
                                                 <div class="col-12 p-3">
                                                     <div class="row mb-0">
@@ -102,7 +101,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="card-action"> <a
+                                                    <div class="card-action" style="padding-left:25px; "> <a
                                                     href="notas?action=uncurso&id=${o.getId()}">Ver Alumnos</a>
                                             </div>
                                         </div>
