@@ -13,8 +13,8 @@
         <%
             Connection conn;
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pgracademia",
-                    "root", "");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pgracademia?useSSL=false&characterEncoding=latin1",
+                    "angel", "1234");
             File reportFile = new File(application.getRealPath("Ireports/reporteNotas.jasper"));
             Map parametros = new HashMap();
             byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath(), parametros, conn);

@@ -46,14 +46,13 @@ FROM
 					</textElement>
 					<text><![CDATA[Academia de Cursos]]></text>
 				</staticText>
+				<image>
+					<reportElement x="450" y="22" width="100" height="66" uuid="36de5617-41ee-43f1-a9a3-1e1a66605a92"/>
+				</image>
 			</frame>
 			<frame>
 				<reportElement mode="Opaque" x="0" y="104" width="555" height="15" forecolor="#000000" backcolor="#A33139" uuid="5ad2dafa-a39e-4006-9ca6-a4136221be63"/>
 			</frame>
-			<image>
-				<reportElement x="445" y="12" width="98" height="76" uuid="05119dd6-0661-4bc7-b35c-b86074db5a50"/>
-				<imageExpression><![CDATA["C:\\Users\\user\\Documents\\Tamara\\usam.png"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<pageHeader>
