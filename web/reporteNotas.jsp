@@ -3,6 +3,7 @@
 <%@page import="net.sf.jasperreports.engine.JasperRunManager" %>
 <%@page import="java.util.*" %>
 <%@page import="java.io.File" %>
+<%@include file="Ireports/vista.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,6 +18,8 @@
                     "angel", "1234");
             File reportFile = new File(application.getRealPath("Ireports/reporteNotas.jasper"));
             Map parametros = new HashMap();
+            String valor = request.getParameter("param");
+            parametros.put("filtro", new String(valor));
             byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath(), parametros, conn);
             response.setContentType("application/pdf");
             response.setContentLength(bytes.length);
