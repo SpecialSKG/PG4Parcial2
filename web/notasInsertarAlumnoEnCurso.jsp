@@ -18,7 +18,7 @@
             <form action="notas?action=insertar" method="POST" class="border container col-12 mt-5 p-3">
                 <div class="row col-12 form-group pt-4 d-flex flex-row justify-content-center">
                     <div class="col-12 col-md-6 d-flex flex-row justify-content-center">
-                        <h2>Insertar Curso</h2>
+                        <h2>Insertar Alumno en Curso</h2>
                     </div>
                 </div>
                 <div class="row col-12 form-group pt-2">

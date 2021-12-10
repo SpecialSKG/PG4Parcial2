@@ -127,17 +127,20 @@
             <!-- /Fin Menu-->
 
             <div id="page-wrapper">
-                <div class="container-fluid">
+                <div class="container-fluid" style="padding-top: 50px">
 
                     <div class="col-12 d-flex justify-content-center">
-                        <div><h1></h1></div> 
+                        <div><h1>${curso.getTitulo()}</h1></div> 
                     </div>
                     <div class="d-flex flex-row">
-                        <a href="notas?action=cursos" class="btn">volver al listado de cursos</a>
+                        <div class="d-flex flex-row">
+                            <a href="notas?action=cursos" class="btn btn-info mb-5">volver al listado de cursos</a>
+                        </div>
+                        <div class="col-12 d-flex justify-content-end">
+                            <a class="btn btn-info mb-5" href="notas?action=insertarcc&id=${curso.getId()}">Insertar un Nuevo Estudiante a este Curso</a> 
+                        </div>
                     </div>
-                    <div class="col-12 d-flex justify-content-end">
-                        <a class="btn" href="notas?action=insertarcc&id=${curso.getId()}">Insertar un Nuevo Estudiante a este Curso</a> 
-                    </div>
+
                     <c:choose>
                         <c:when test="${validacion.equals('true')}">
                             <div class="container">

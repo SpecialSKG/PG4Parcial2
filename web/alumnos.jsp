@@ -14,7 +14,7 @@
             <div class="row">
                 <h1>Agregar alumno</h1>
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <a class="btn btn-primary mb-5" href="index.jsp"><i class="bi bi-house"></i>&nbsp;Inicio</a> <a class="btn btn-info mb-5" href="Alumno?action=selectAll"><i class="bi bi-person-check-fill"></i>&nbsp;Alumnos registrados</a>
+                    <a class="btn btn-primary mb-5" href="inicio.jsp"><i class="bi bi-house"></i>&nbsp;Inicio</a> <a class="btn btn-info mb-5" href="Alumno?action=selectAll"><i class="bi bi-person-check-fill"></i>&nbsp;Alumnos registrados</a>
                     <form action="Alumno?action=insert" method="POST">
 
                         <div class="form-group">

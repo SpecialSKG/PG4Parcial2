@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.Profesor;
 
 public class ProfesorServlet extends HttpServlet {
@@ -53,6 +54,8 @@ public class ProfesorServlet extends HttpServlet {
         profeD.insert(p);
 
         lista = profeD.selectAll();
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("lista", lista);
         rd = request.getRequestDispatcher("/verProfesores.jsp");
         rd.forward(request, response);
@@ -82,6 +85,8 @@ public class ProfesorServlet extends HttpServlet {
         }
 
         lista = profeD.selectAll();
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
 
@@ -91,6 +96,8 @@ public class ProfesorServlet extends HttpServlet {
 
     protected void delete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         String id = request.getParameter("idprofesor");
         profeD.delete(Integer.parseInt(id));
         response.sendRedirect(request.getContextPath() + "/profesor?action=seleccionarTodo");
@@ -98,7 +105,10 @@ public class ProfesorServlet extends HttpServlet {
 
     protected void selectAll(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         lista = profeD.selectAll();
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("lista", lista);
         rd = request.getRequestDispatcher("/verProfesores.jsp");
         rd.forward(request, response);
@@ -108,6 +118,8 @@ public class ProfesorServlet extends HttpServlet {
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("idprofesor"));
         lista = profeD.selectById(id);
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("lista", lista);
 
         rd = request.getRequestDispatcher("/editarProfesor.jsp");
