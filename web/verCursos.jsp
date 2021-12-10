@@ -139,7 +139,7 @@
                         <div class="row">
                             <h1>Cursos registrados</h1>
                             <div class="col-sm-12 col-md-12 col-lg-12">                            
-                                <a class="btn btn-primary mb-5" href="inicio.jsp"><i class="bi bi-house"></i>&nbsp;Inicio</a> <a class="btn btn-info mb-5" href="cursos.jsp"><i class="bi bi-person-plus"></i>&nbsp;Registrar un Curso</a>
+                                <a class="btn btn-primary mb-5" href="inicio.jsp"><i class="bi bi-house"></i>&nbsp;Inicio</a> <a class="btn btn-info mb-5" href="curso?action=insert"><i class="bi bi-person-plus"></i>&nbsp;Registrar un Curso</a>
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
