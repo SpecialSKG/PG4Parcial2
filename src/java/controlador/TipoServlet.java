@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.Tipo_Usuario;
 
 public class TipoServlet extends HttpServlet {
@@ -81,6 +82,8 @@ public class TipoServlet extends HttpServlet {
         }
 
         lista = tpD.selectAll();
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
 
@@ -101,6 +104,8 @@ public class TipoServlet extends HttpServlet {
         }
 
         lista = tpD.selectAll();
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
 
@@ -112,6 +117,8 @@ public class TipoServlet extends HttpServlet {
             throws ServletException, IOException {
 
         lista = tpD.selectAll();
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("lista", lista);
 
         rd = request.getRequestDispatcher("/verTipoU.jsp");
@@ -123,6 +130,8 @@ public class TipoServlet extends HttpServlet {
 
         int id = Integer.parseInt(request.getParameter("id"));
         lista = tpD.selectId(id);
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("lista", lista);
 
         rd = request.getRequestDispatcher("/editarTipoU.jsp");

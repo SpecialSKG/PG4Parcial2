@@ -78,30 +78,27 @@
                     <div class="row">
                         <div class="d-flex flex-wrap align-content-center col-12">
                             <c:forEach items="${lista}" var="o">
-                                <div class="col-12 col-md-6 col-lg-4 p-1">
+                                <div class="col-12 col-md-6 col-lg-4 p-1" style="height: 150px !important">
                                     <div class="col-12 m-0">
                                         <div class="panel panel-primary">
-                                            <div class="panel-heading">
+                                            <div class="panel-heading" style="padding-left: 50px !important">
                                                 <div class="d-flex justify-content-between  text-right">
-                                                    <div class="card-title">${o.getTitulo()}</div>
+                                                    <div class="card-title"><h1>${o.getTitulo()}</h1></div>
                                                     <div class="card-title">${o.getId()}</div>
                                                 </div>
                                                 <div class="col-12 p-3">
                                                     <div class="row mb-0">
-                                                        <div class="col-6">codigo</div>
-                                                        <div class="col-6">${o.getCodigo()}</div>
+                                                        <div class="col-6"><b>codigo </b>${o.getCodigo()}</div>
                                                     </div>
                                                     <div class="row mb-0">
-                                                        <div class="col-6">fecha de inicio</div>
-                                                        <div class="col-6">${o.getFechaInicioString()}</div>
+                                                        <div class="col-6"><b>fecha de inicio </b>${o.getFechaInicioString()}</div>
                                                     </div>
                                                     <div class="row mb-0">
-                                                        <div class="col-6">fecha de fin</div>
-                                                        <div class="col-6">${o.getFechaFinString()}</div>
+                                                        <div class="col-6"><b>fecha de fin </b>${o.getFechaFinString()}</div>
+                                                        <div class="col-6"></div>
                                                     </div>
                                                     <div class="row mb-0">
-                                                        <div class="col-6">horas de duracion</div>
-                                                        <div class="col-6">${o.getHoraDuracionString()}</div>
+                                                        <div class="col-6"><b>horas de duracion </b>${o.getHoraDuracionString()}</div>
                                                     </div>
                                                 </div>
                                             </div>

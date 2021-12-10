@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.Alumno;
 
 public class AlumnoServlet extends HttpServlet {
@@ -81,6 +82,8 @@ public class AlumnoServlet extends HttpServlet {
         }
 
         lista = alumD.selectAll();
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
 
@@ -118,6 +121,8 @@ public class AlumnoServlet extends HttpServlet {
         }
 
         lista = alumD.selectAll();
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
 
@@ -137,6 +142,8 @@ public class AlumnoServlet extends HttpServlet {
         }
 
         lista = alumD.selectAll();
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
 
@@ -148,6 +155,8 @@ public class AlumnoServlet extends HttpServlet {
             throws ServletException, IOException {
         lista = alumD.selectAll();
         request.setAttribute("lista", lista);
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
 
         rd = request.getRequestDispatcher("/verAlumnos.jsp");
         rd.forward(request, response);
@@ -157,6 +166,8 @@ public class AlumnoServlet extends HttpServlet {
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         lista = alumD.selectId(id);
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("lista", lista);
 
         rd = request.getRequestDispatcher("/editarAlumno.jsp");

@@ -64,6 +64,8 @@ public class UsuarioServlet extends HttpServlet {
         TipoDao pr = new TipoDao(conn);
         List<Tipo_Usuario> tipo = pr.selectAll();
         request.setAttribute("tipo", tipo);
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         rd = request.getRequestDispatcher("/usuarios.jsp");
         rd.forward(request, response);
     }
@@ -110,6 +112,8 @@ public class UsuarioServlet extends HttpServlet {
             msj = "registro No insertado";
         }
         //lista = userd.selectAll();
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("msj", msj);
         request.setAttribute("lista", lista);
         rd = request.getRequestDispatcher("/index.jsp");
@@ -120,6 +124,8 @@ public class UsuarioServlet extends HttpServlet {
     protected void selectAll(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         lista = userd.selectAll();
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("lista", lista);
         rd = request.getRequestDispatcher("/verUsuarios.jsp");
         rd.forward(request, response);
@@ -129,6 +135,8 @@ public class UsuarioServlet extends HttpServlet {
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         lista = userd.selectById(id);
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("lista", lista);
         rd = request.getRequestDispatcher("/actualizr.jsp");
         rd.forward(request, response);
@@ -137,6 +145,8 @@ public class UsuarioServlet extends HttpServlet {
     protected void delete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id = request.getParameter("id");
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         userd.Delete(Integer.parseInt(id));
         response.sendRedirect(request.getContextPath() + "/usuario?action=selectall");
     }
@@ -156,6 +166,8 @@ public class UsuarioServlet extends HttpServlet {
             msj = "registro No actualizado";
         }
         //lista = userd.selectAll();
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("msj", msj);
         request.setAttribute("lista", lista);
         rd = request.getRequestDispatcher("/inicio.jsp");
