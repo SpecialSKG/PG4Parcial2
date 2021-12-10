@@ -1,7 +1,7 @@
 package controlador;
 
 import conexion.Conexion;
-import dao.AlumnoDao;
+import dao.ProfesorDao;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -10,167 +10,119 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Alumno;
+import modelo.Profesor;
 
-public class AlumnoServlet extends HttpServlet {
+public class ProfesorServlet extends HttpServlet {
 
     String msg;
     boolean resp;
     RequestDispatcher rd;
     Conexion conn = new Conexion();
-    AlumnoDao alumD = new AlumnoDao(conn);
-    List<Alumno> lista;
+    ProfesorDao profeD = new ProfesorDao(conn);
+    List<Profesor> lista;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
         switch (action) {
-            case "insert":
+            case "insertar":
                 insert(request, response);
                 break;
-            case "update":
+            case "actualizar":
                 update(request, response);
                 break;
-            case "delete":
+            case "eliminar":
                 delete(request, response);
                 break;
-            case "selectAll":
+            case "seleccionarTodo":
                 selectAll(request, response);
                 break;
-            case "selectId":
-                selectId(request, response);
+            case "seleccionarId":
+                selectById(request, response);
                 break;
-        };
+        }
     }
 
     protected void insert(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        /*
-        String dui = request.getParameter("dui");
-        String direccion = request.getParameter("direccion");
+        int dui = Integer.parseInt(request.getParameter("dui"));
         String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String direccion = request.getParameter("direccion");
         String telefono = request.getParameter("telefono");
-        int edad = Integer.parseInt(request.getParameter("edad"));
-        String cif = request.getParameter("cif");
-        String telefono_empresa = request.getParameter("telefono_empresa");
-        String direccion_empresa = request.getParameter("direccion_empresa");
+        Profesor p = new Profesor(dui, nombre, apellido, direccion, telefono);
+        profeD.insert(p);
 
-        Alumno alum = new Alumno(0);
-        alum.setDui(dui);
-        alum.setDireccion(direccion);
-        alum.setNombre(nombre);
-        alum.setTelefono(telefono);
-        alum.setEdad(edad);
-        alum.setCif(cif);
-        alum.setTelefono_empresa(telefono_empresa);
-        alum.setDireccion_empresa(direccion_empresa);
-         */
-        Alumno alum = new Alumno(0);
-        alum.setDui(request.getParameter("dui"));
-        alum.setDireccion(request.getParameter("direccion"));
-        alum.setNombre(request.getParameter("nombre"));
-        alum.setTelefono(request.getParameter("telefono"));
-        alum.setEdad(Integer.parseInt(request.getParameter("edad")));
-        alum.setCif(request.getParameter("cif"));
-        alum.setTelefono_empresa(request.getParameter("telefono_empresa"));
-        alum.setDireccion_empresa(request.getParameter("direccion_empresa"));
-        resp = alumD.Insert(alum);
-        if (resp) {
-            msg = "Registro Guardado";
-        } else {
-            msg = "Registro No Guardado";
-        }
-
-        lista = alumD.selectAll();
+        lista = profeD.selectAll();
         HttpSession session = request.getSession();
         session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
-        request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
-
-        rd = request.getRequestDispatcher("/alumnos.jsp");
+        rd = request.getRequestDispatcher("/verProfesores.jsp");
         rd.forward(request, response);
     }
 
     protected void update(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        String dui = request.getParameter("dui");
-        String direccion = request.getParameter("direccion");
+        int id = Integer.parseInt(request.getParameter("idprofesor"));
+        int dui = Integer.parseInt(request.getParameter("dui"));
         String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String direccion = request.getParameter("direccion");
         String telefono = request.getParameter("telefono");
-        int edad = Integer.parseInt(request.getParameter("edad"));
-        String cif = request.getParameter("cif");
-        String telefono_empresa = request.getParameter("telefono_empresa");
-        String direccion_empresa = request.getParameter("direccion_empresa");
 
-        Alumno alum = new Alumno(id);
-        alum.setDui(dui);
-        alum.setDireccion(direccion);
-        alum.setNombre(nombre);
-        alum.setTelefono(telefono);
-        alum.setEdad(edad);
-        alum.setCif(cif);
-        alum.setTelefono_empresa(telefono_empresa);
-        alum.setDireccion_empresa(direccion_empresa);
+        Profesor prof = new Profesor(id);
+        prof.setDui(dui);
+        prof.setNombre(nombre);
+        prof.setApellido(apellido);
+        prof.setDireccion(direccion);
+        prof.setTelefono(telefono);
 
-        resp = alumD.Update(alum);
+        resp = profeD.update(prof);
         if (resp) {
             msg = "Registro Actualizado";
         } else {
             msg = "Registro No Actualizado";
         }
 
-        lista = alumD.selectAll();
+        lista = profeD.selectAll();
         HttpSession session = request.getSession();
         session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("msg", msg);
         request.setAttribute("lista", lista);
 
-        rd = request.getRequestDispatcher("/verAlumnos.jsp");
+        rd = request.getRequestDispatcher("/verProfesores.jsp");
         rd.forward(request, response);
     }
 
     protected void delete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-
-        resp = alumD.Delete(id);
-        if (resp) {
-            msg = "Registro Eliminado";
-        } else {
-            msg = "Registro No Eliminado";
-        }
-
-        lista = alumD.selectAll();
         HttpSession session = request.getSession();
         session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
-        request.setAttribute("msg", msg);
-        request.setAttribute("lista", lista);
-
-        rd = request.getRequestDispatcher("/verAlumnos.jsp");
-        rd.forward(request, response);
+        String id = request.getParameter("idprofesor");
+        profeD.delete(Integer.parseInt(id));
+        response.sendRedirect(request.getContextPath() + "/profesor?action=seleccionarTodo");
     }
 
     protected void selectAll(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        lista = alumD.selectAll();
-        request.setAttribute("lista", lista);
+        
+        lista = profeD.selectAll();
         HttpSession session = request.getSession();
         session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
-
-        rd = request.getRequestDispatcher("/verAlumnos.jsp");
+        request.setAttribute("lista", lista);
+        rd = request.getRequestDispatcher("/verProfesores.jsp");
         rd.forward(request, response);
     }
 
-    protected void selectId(HttpServletRequest request, HttpServletResponse response)
+    protected void selectById(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        lista = alumD.selectId(id);
+        int id = Integer.parseInt(request.getParameter("idprofesor"));
+        lista = profeD.selectById(id);
         HttpSession session = request.getSession();
         session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("lista", lista);
 
-        rd = request.getRequestDispatcher("/editarAlumno.jsp");
+        rd = request.getRequestDispatcher("/editarProfesor.jsp");
         rd.forward(request, response);
     }
 
@@ -185,4 +137,5 @@ public class AlumnoServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
+
 }

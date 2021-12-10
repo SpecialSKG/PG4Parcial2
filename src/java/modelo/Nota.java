@@ -7,16 +7,13 @@ public class Nota {
     private Alumno alumno;
     private double nota;
 
-    public Nota(int id,int curso,int alumno, double nota) {
+    public Nota(int id,int curso,int alumno,double nota) {
         this.id = id;
         this.nota = nota;
         this.alumno = new Alumno(alumno);
         this.curso = new Curso(curso);
     }
     
-    
-    
-
     public Nota(int id, Curso curso, Alumno alumno, double nota) {
         this.id = id;
         this.curso = curso;
@@ -68,6 +65,5 @@ public class Nota {
     public void setNota(double nota) {
         this.nota = nota;
     }
-    
-    
+
 }

@@ -3,12 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/josea/Documents/NetBeansProjects/PG4Parcial2/src/java/modelo/Alumno.java</file>
-            <file>file:/C:/Users/josea/Documents/NetBeansProjects/PG4Parcial2/src/java/controlador/AlumnoServlet.java</file>
-            <file>file:/C:/Users/josea/Documents/NetBeansProjects/PG4Parcial2/web/notas.jsp</file>
-            <file>file:/C:/Users/josea/Documents/NetBeansProjects/PG4Parcial2/src/java/modelo/Nota.java</file>
-            <file>file:/C:/Users/josea/Documents/NetBeansProjects/PG4Parcial2/web/index.jsp</file>
-            <file>file:/C:/Users/josea/Documents/NetBeansProjects/PG4Parcial2/src/java/dao/NotaDao.java</file>
+            <file>file:/C:/Users/Angel/Documents/PG4Parcial2/web/notas.jsp</file>
+            <file>file:/C:/Users/Angel/Documents/PG4Parcial2/web/Ireports/vista.jsp</file>
+            <file>file:/C:/Users/Angel/Documents/PG4Parcial2/web/inicio.jsp</file>
+            <file>file:/C:/Users/Angel/Documents/PG4Parcial2/web/reporteFiltro.jsp</file>
+            <file>file:/C:/Users/Angel/Documents/PG4Parcial2/web/profesores.jsp</file>
+            <file>file:/C:/Users/Angel/Documents/PG4Parcial2/web/verCursos.jsp</file>
+            <file>file:/C:/Users/Angel/Documents/PG4Parcial2/web/notasInsertarAlumnoEnCurso.jsp</file>
+            <file>file:/C:/Users/Angel/Documents/PG4Parcial2/web/cursos.jsp</file>
+            <file>file:/C:/Users/Angel/Documents/PG4Parcial2/web/reporteNotas.jsp</file>
+            <file>file:/C:/Users/Angel/Documents/PG4Parcial2/web/notasCursoAlumnos.jsp</file>
+            <file>file:/C:/Users/Angel/Documents/PG4Parcial2/web/usuarios.jsp</file>
+            <file>file:/C:/Users/Angel/Documents/PG4Parcial2/web/editarNota.jsp</file>
+            <file>file:/C:/Users/Angel/Documents/PG4Parcial2/web/editarProfesor.jsp</file>
+            <file>file:/C:/Users/Angel/Documents/PG4Parcial2/web/editarAlumno.jsp</file>
+            <file>file:/C:/Users/Angel/Documents/PG4Parcial2/web/alumnos.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -4,82 +4,176 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/materialize.css" rel="stylesheet"/>
-        <link href="css/main.css" rel="stylesheet"/>
+        <!--<link href="css/materialize.css" rel="stylesheet"/>
+        <link href="css/main.css" rel="stylesheet"/>-->
+        <link href="css/bootstrap.min_1.css" rel="stylesheet" type="text/css"/>
+        <link href="css/startmin.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <title>Cursos</title>
+        <title>Academia de cursos</title>
     </head>
     <body>
-        <div class="valign-wrapper" style="width:100%;height:100%;position: absolute;">
-            <div class="valign" style="width:100%;">
-                <div class="container">
-                    <div class="row">
+        <%
+            HttpSession sesion = request.getSession();
+            String usuario;
+            if (sesion.getAttribute("usuario") != null) {
+                usuario = sesion.getAttribute("usuario").toString();
 
-                        <div class="col s6 offset-s3">
-                            <h3>Agregar curso</h3>
-                            <a class="waves-effect waves-light" href="index.jsp">Inicio</a> / <a class="waves-effect waves-light" href="curso?action=selectAll">Cursos registrados</a>
-                            <br><br><br>
+        %>
+
+
+        <div id="wrapper">
+            <!-- Navigation -->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="inicio.html">ACADEMIA DE CURSOS</a>
+                </div>
+
+                <ul class="nav navbar-right navbar-top-links">
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-user fa-fw"></i> USUARIO <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i>Ver Perfil</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="usuario?action=logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- /.navbar-top-links -->
+
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <!-- /Menu-->
+                            <li>
+                                <a href="inicio.jsp">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="notas.jsp">
+                                    <i class="fa fa-files-o fa-fw"></i> Notas
+                                    <span class="fa arrow"></span>
+                                </a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="notas?action=cursos">Ver notas</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-files-o fa-fw"></i> Alumnos
+                                    <span class="fa arrow"></span>
+                                </a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="Alumno?action=selectAll">Ver alumnos</a>
+                                    </li>
+                                    <li>
+                                        <a href="alumnos.jsp">Agregar alumno</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-files-o fa-fw"></i> Profesores
+                                    <span class="fa arrow"></span>
+                                </a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="profesor?action=seleccionarTodo">Ver profesores</a>
+                                    </li>
+                                    <li>
+                                        <a href="profesores.jsp">Agregar profesor</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-files-o fa-fw"></i> Cursos
+                                    <span class="fa arrow"></span>
+                                </a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="curso?action=selectall">Ver cursos</a>
+                                    </li>
+                                    <li>
+                                        <a href="curso?action=insert">Agregar curso</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-files-o fa-fw"></i> Usuarios
+                                    <span class="fa arrow"></span>
+                                </a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="usuario?action=selectAll">Ver Usuarios</a>
+                                    </li>
+                                    <li>
+                                        <a href="usuario?action=goInsert">Agregar Usuarios</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- /Fin Menu-->
+
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <h1>Agregar un Curso</h1>
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <a class="btn btn-primary mb-5" href="inicio.jsp"><i class="bi bi-house"></i>&nbsp;Inicio</a> <a class="btn btn-info mb-5" href="curso?action=selectall"><i class="bi bi-person-check-fill"></i>&nbsp;Cursos registrados</a>
                             <form action="curso?action=insertar" method="POST">
 
-                                <div class="input-field">
-                                    <i class="material-icons prefix">school</i>
-                                    <label for="codigo">Código del curso</label>
-                                    <input type="text" name="codigo" id="codigo" required>
+                                <div class="form-group">
+                                    <label for="dui">Codigo</label>
+                                    <input type="text" name="codigo" class="form-control" id="codigo">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="nombre">Titulo</label>
+                                    <input type="text" name="titulo" class="form-control" id="titulo">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="apellido">Hora de Duración</label>
+                                    <input type="text" name="hora_duracion" class="form-control" id="hora_duracion">
                                 </div>
 
                                 <div class="input-field">
-                                    <i class="material-icons prefix">edit</i>
-                                    <label for="titulo">Título</label>
-                                    <input type="text" name="titulo" id="titulo" required>
-                                </div>
-
-                                <div class="input-field">
-                                    <i class="material-icons prefix">access_time</i>
-                                    <label for="hora_duracion">Duración</label>
-                                    <input type="time" name="hora_duracion" id="hora_duracion" required>
-                                </div>
-
-                                <div class="input-field">
-                                    <i class="material-icons prefix">date_range</i>
                                     <label for="fecha_inicio">Fecha de inicio</label>
                                     <input type="date" name="fecha_inicio" id="fecha_inicio" required>
                                 </div>
 
                                 <div class="input-field">
-                                    <i class="material-icons prefix">date_range</i>
                                     <label for="fecha_fin">Fecha finalización</label>
                                     <input type="date" name="fecha_fin" id="fecha_fin" required>
                                 </div>
 
-                                <div class="input-field">
-                                    <i class="material-icons prefix">credit_card</i>
-                                    <label for="profe_dui">DUI del profesor</label>
-                                    <input type="text" name="profe_dui" id="profe_dui" required>
+                                <div class="row col-12 form-group">
+                                    <div class="col-12 col-md-6">
+                                        Profesor:
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <select id="profesor" name="profesor" class="form-control">
+                                            <c:forEach items="${profes}" var="p">
+                                                <option value="${p.idprofesor}">
+                                                    ${p.nombre}
+                                                </option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
                                 </div>
 
-                                <div class="input-field">
-                                    <i class="material-icons prefix">person</i>
-                                    <label for="nombre">Nombre del profesor</label>
-                                    <input type="text" name="nombre" id="nombre" required>
-                                </div>
-
-                                <div class="input-field">
-                                    <i class="material-icons prefix">person</i>
-                                    <label for="apellido">Apellidos</label>
-                                    <input type="text" name="apellido" id="apellido" required>
-                                </div>
-                                
-                                <div class="input-field">
-                                    <i class="material-icons prefix">location_on</i>
-                                    <label for="direccion">Dirección</label>
-                                    <input type="text" name="direccion" id="direccion" required>
-                                </div>
-                                
-                                <div class="input-field">
-                                    <i class="material-icons prefix">local_phone</i>
-                                    <label for="telefono">Teléfono</label>
-                                    <input type="text" name="telefono" id="telefono" required>
-                                </div>
                                 <br>       
                                 <button class="waves-effect waves-light btn" type="submit">Guardar</button>
 
@@ -87,11 +181,22 @@
                             <br>
                             <center>${msg}</center>
                         </div>
+                        </form>
+                        <br>
+                        <center>${msg}</center>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- jQuery -->
+        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min_1.js" type="text/javascript"></script>
     </body>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="js/materialize.js" type="text/javascript"></script>
 </html>
+<%    } else {
+        response.sendRedirect("index.jsp");
+    }
+
+%>

@@ -11,64 +11,50 @@ public class Curso {
     private Date hora_duracion;
     private Date fecha_inicio;
     private Date fecha_fin;
-    private String profe_dui;
-    private String nombre;
-    private String apellido;
-    private String direccion;
-    private String telefono;
+    private Profesor profe;
 
     public Curso() {
     }
-    
+
     public Curso(int id) {
         this.id = id;
     }
 
-    public Curso(String codigo, String titulo, Date hora_duracion, Date fecha_inicio, Date fecha_fin, String profe_dui, String nombre, String apellido, String direccion, String telefono) {
+    public Curso(String codigo, String titulo, Date hora_duracion, Date fecha_inicio, Date fecha_fin, Profesor profe) {
         this.codigo = codigo;
         this.titulo = titulo;
         this.hora_duracion = hora_duracion;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
-        this.profe_dui = profe_dui;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.direccion = direccion;
-        this.telefono = telefono;
+        this.profe = profe;
     }
     
-    public Curso(String codigo, String titulo, String hora_duracion, String fecha_inicio, String fecha_fin, String profe_dui, String nombre, String apellido, String direccion, String telefono) {
+    public Curso(String codigo, String titulo, String hora_duracion, String fecha_inicio, String fecha_fin, Profesor profe) {
         this.codigo = codigo;
         this.titulo = titulo;
-        
+
         try {
             this.hora_duracion = new SimpleDateFormat("hh:mm").parse(hora_duracion);
             this.fecha_inicio = new SimpleDateFormat("yyyy-MM-dd").parse(fecha_inicio);
             this.fecha_fin = new SimpleDateFormat("yyyy-MM-dd").parse(fecha_fin);
         } catch (Exception e) {
-            System.out.println("Error en el paseo de alguno de los tiempos formato de fechas son yyyy-MM-dd hh:mm:ss formato de hora hh:mm:ss: "+ e);
+            System.out.println("Error en el paseo de alguno de los tiempos formato de fechas son yyyy-MM-dd hh:mm:ss formato de hora hh:mm:ss: " + e);
         }
-        
-        this.profe_dui = profe_dui;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.direccion = direccion;
-        this.telefono = telefono;
+
+        this.profe = profe;
     }
 
-    public Curso(int id, String codigo, String titulo, Date hora_duracion, Date fecha_inicio, Date fecha_fin, String profe_dui, String nombre, String apellido, String direccion, String telefono) {
+    public Curso(int id, String codigo, String titulo, Date hora_duracion, Date fecha_inicio, Date fecha_fin, Profesor profe) {
         this.id = id;
         this.codigo = codigo;
         this.titulo = titulo;
         this.hora_duracion = hora_duracion;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
-        this.profe_dui = profe_dui;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.direccion = direccion;
-        this.telefono = telefono;
+        this.profe = profe;
     }
+
+    
 
     public int getId() {
         return id;
@@ -97,7 +83,7 @@ public class Curso {
     public Date getHora_duracion() {
         return hora_duracion;
     }
-    
+
     public String getHoraDuracionString() {
         return new SimpleDateFormat("hh:mm").format(this.hora_duracion);
     }
@@ -117,8 +103,8 @@ public class Curso {
     public Date getFecha_inicio() {
         return fecha_inicio;
     }
-    
-    public String getFechaInicioString(){
+
+    public String getFechaInicioString() {
         return new SimpleDateFormat("yyyy-MM-dd").format(fecha_inicio);
     }
 
@@ -134,10 +120,10 @@ public class Curso {
         this.fecha_inicio = fecha_inicio;
     }
 
-    public String getFechaFinString(){
+    public String getFechaFinString() {
         return new SimpleDateFormat("yyyy-MM-dd").format(fecha_fin);
     }
-    
+
     public Date getFecha_fin() {
         return fecha_fin;
     }
@@ -154,44 +140,12 @@ public class Curso {
         this.fecha_fin = fecha_fin;
     }
 
-    public String getProfe_dui() {
-        return profe_dui;
+    public Profesor getProfe() {
+        return profe;
     }
 
-    public void setProfe_dui(String profe_dui) {
-        this.profe_dui = profe_dui;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setProfe(Profesor profe) {
+        this.profe = profe;
     }
 
 }

@@ -17,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.Alumno;
 import modelo.Curso;
 import modelo.Nota;
@@ -66,8 +67,8 @@ public class NotaServlet extends HttpServlet {
                 break;
             case "eliminar":
                 eliminar(request, response);
-                break;    
-                
+                break;
+
         }
 
     }
@@ -86,6 +87,8 @@ public class NotaServlet extends HttpServlet {
 
     private void mostrarCursos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         lc = cd.selectAll();
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("lista", lc);
         rd = request.getRequestDispatcher("notas.jsp");
         rd.forward(request, response);
@@ -98,6 +101,8 @@ public class NotaServlet extends HttpServlet {
         request.setAttribute("lista", ln);
         request.setAttribute("validacion", vali);
         request.setAttribute("curso", nota);
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         rd = request.getRequestDispatcher("notasCursoAlumnos.jsp");
         rd.forward(request, response);
     }
@@ -111,7 +116,8 @@ public class NotaServlet extends HttpServlet {
 
         request.setAttribute("curso", curso);
         request.setAttribute("alumnos", la);
-
+HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         rd = request.getRequestDispatcher("notasInsertarAlumnoEnCurso.jsp");
         rd.forward(request, response);
 
@@ -124,6 +130,8 @@ public class NotaServlet extends HttpServlet {
         Curso nota = cd.selectById(Integer.parseInt(request.getParameter("curso")));
         ln = nd.selectAllWhereCurso(Integer.parseInt(request.getParameter("curso")));
         String vali = (ln.size() > 0) ? "true" : "false";
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("lista", ln);
         request.setAttribute("validacion", vali);
         request.setAttribute("curso", nota);
@@ -134,16 +142,20 @@ public class NotaServlet extends HttpServlet {
     private void modificar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Nota nota = nd.selectById(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("nota", nota);
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         rd = request.getRequestDispatcher("notasActualizar.jsp");
         rd.forward(request, response);
     }
 
     private void actualizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Nota notaUpdate = new Nota(Integer.parseInt(request.getParameter("id")),Integer.parseInt(request.getParameter("curso")), Integer.parseInt(request.getParameter("alumno")), Double.parseDouble(request.getParameter("nota")));// new Nota(curso, alumno, nota);
+        Nota notaUpdate = new Nota(Integer.parseInt(request.getParameter("id")), Integer.parseInt(request.getParameter("curso")), Integer.parseInt(request.getParameter("alumno")), Double.parseDouble(request.getParameter("nota")));// new Nota(curso, alumno, nota);
         nd.update(notaUpdate);
         Curso nota = cd.selectById(Integer.parseInt(request.getParameter("curso")));
         ln = nd.selectAllWhereCurso(Integer.parseInt(request.getParameter("curso")));
         String vali = (ln.size() > 0) ? "true" : "false";
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("lista", ln);
         request.setAttribute("validacion", vali);
         request.setAttribute("curso", nota);
@@ -156,14 +168,14 @@ public class NotaServlet extends HttpServlet {
         Curso nota = cd.selectById(Integer.parseInt(request.getParameter("curso")));
         ln = nd.selectAllWhereCurso(Integer.parseInt(request.getParameter("curso")));
         String vali = (ln.size() > 0) ? "true" : "false";
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         request.setAttribute("lista", ln);
         request.setAttribute("validacion", vali);
         request.setAttribute("curso", nota);
         rd = request.getRequestDispatcher("notasCursoAlumnos.jsp");
         rd.forward(request, response);
-        
+
     }
-    
-    
 
 }

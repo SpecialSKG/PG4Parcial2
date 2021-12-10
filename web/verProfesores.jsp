@@ -15,7 +15,7 @@
         <%
             HttpSession sesion = request.getSession();
             String usuario;
-            if (sesion.getAttribute("usuario") != null && sesion.getAttribute("usuario") != "") {
+            if (sesion.getAttribute("usuario") != null) {
                 usuario = sesion.getAttribute("usuario").toString();
 
         %>
@@ -127,74 +127,40 @@
             <!-- /Fin Menu-->
 
             <div id="page-wrapper">
-                <div class="container-fluid" style="padding-top: 50px">
-
-                    <div class="col-12 d-flex justify-content-center">
-                        <div><h1>${curso.getTitulo()}</h1></div> 
+                <div class="container-fluid">
+                    <h1>Profesores registrados</h1>
+                    <div class="col-sm-12 col-md-12 col-lg-12">                            
+                        <a class="btn btn-primary mb-5" href="inicio.jsp"><i class="bi bi-house"></i>&nbsp;Inicio</a> <a class="btn btn-info mb-5" href="profesores.jsp"><i class="bi bi-person-plus"></i>&nbsp;Registrar profesores</a>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">DUI</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellido</th>
+                                    <th scope="col">Dirección</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${lista}" var="v">
+                                    <tr>
+                                        <td><c:out value="${v.idprofesor}" /></td>
+                                        <td><c:out value="${v.dui}" /></td>
+                                        <td><c:out value="${v.nombre}" /></td>
+                                        <td><c:out value="${v.apellido}" /></td>
+                                        <td><c:out value="${v.direccion}" /></td>
+                                        <td><c:out value="${v.telefono}" /></td>
+                                        <td>
+                                            <a class="btn btn-danger" href="profesor?action=eliminar&idprofesor=${v.idprofesor}"><i class="bi bi-trash"></i>&nbsp;Eliminar</a>
+                                            <a class="btn btn-info" href="profesor?action=seleccionarId&idprofesor=${v.idprofesor}"><i class="bi bi-pen"></i>&nbsp;Editar</a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="d-flex flex-row">
-                        <div class="d-flex flex-row">
-                            <a href="notas?action=cursos" class="btn btn-info mb-5">volver al listado de cursos</a>
-                        </div>
-                        <div class="col-12 d-flex justify-content-end">
-                            <a class="btn btn-info mb-5" href="notas?action=insertarcc&id=${curso.getId()}">Insertar un Nuevo Estudiante a este Curso</a> 
-                        </div>
-                        <div class="col-12 d-flex justify-content-end">
-                            <form action="reporteFiltro.jsp">
-                                <input type="hidden" id="titulo" name="titulo" value="${curso.getTitulo()}"/>
-                                <input type="hidden" id="accion" name="accion" value="filtro"/>
-                                <input type="submit" value="Generar PDF"/>
-                            </form>
-                        </div>
-                    </div>
-
-                    <c:choose>
-                        <c:when test="${validacion.equals('true')}">
-                            <div class="container">
-                                <table class="table">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th>Nombre</th>
-                                            <th>Edad</th>
-                                            <th>DUI</th>
-                                            <th>Telefono</th>
-                                            <th>direccion</th>
-                                            <th>CIF</th>
-                                            <th>Telefo de la empresa</th>
-                                            <th>Direccion de la empresa</th>
-                                            <th>Nota</th>
-                                            <th>Accion</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach items="${lista}" var="c">
-                                            <tr>
-                                                <td>${c.getAlumno().getNombre()}</td>
-                                                <td>${c.getAlumno().getEdad()}</td>
-                                                <td>${c.getAlumno().getDui()}</td>
-                                                <td>${c.getAlumno().getTelefono()}</td>
-                                                <td>${c.getAlumno().getDireccion()}</td>
-                                                <td>${c.getAlumno().getCif()}</td>
-                                                <td>${c.getAlumno().getTelefono_empresa()}</td>
-                                                <td>${c.getAlumno().getDireccion_empresa()}</td>
-                                                <td>${c.getNota()}</td>
-                                                <td>
-                                                    <a href="notas?action=modificar&id=${c.getId()}" class="btn btn-primary">Modificar</a>
-                                                    <a href="notas?action=eliminar&id=${c.getId()}&curso=${c.getCurso().getId()}" class="btn btn-danger">Eliminar</a>
-                                                </td>
-                                            </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </c:when>    
-                        <c:otherwise>
-                            <div class="d-flex flex-row justify-content-center">
-                                <h2>NO HAY ALUMNOS EN ESTE CURSO</h2>    
-                            </div>
-                            <br />
-                        </c:otherwise>
-                    </c:choose>
                 </div>
             </div>
         </div>

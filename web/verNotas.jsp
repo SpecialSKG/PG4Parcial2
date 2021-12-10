@@ -16,7 +16,7 @@
                     <div class="row">
                         <h1>Notas registradas</h1>
                         <div class="col s6 offset-s3">                            
-                            <a class="waves-effect waves-light" href="index.jsp">Inicio</a> / <a class="waves-effect waves-light" href="notas.jsp">Registrar nota</a>
+                            <a class="btn btn-info mb-5" href="index.jsp">Inicio</a> / <a class="btn btn-info mb-5" href="notas.jsp">Registrar nota</a>
                             <table class="responsive-table">
                                 <thead>
                                     <tr>

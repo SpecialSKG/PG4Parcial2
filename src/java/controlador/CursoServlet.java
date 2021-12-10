@@ -2,6 +2,7 @@ package controlador;
 
 import conexion.Conexion;
 import dao.CursoDao;
+import dao.ProfesorDao;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -9,14 +10,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.Curso;
+import modelo.Profesor;
 
 public class CursoServlet extends HttpServlet {
 
     RequestDispatcher rd;
     Conexion conn = new Conexion();
     CursoDao cd = new CursoDao(conn);
+    ProfesorDao profeDao = new ProfesorDao(conn);
     List<Curso> lista;
+    
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -38,6 +43,9 @@ public class CursoServlet extends HttpServlet {
             case "selectbyid":
                 selectById(request, response);
                 break;
+            case "insert":
+                goInsert(request, response);
+                break;
         }
 
     }
@@ -56,17 +64,16 @@ public class CursoServlet extends HttpServlet {
 
     protected void insert(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         String codigo = request.getParameter("codigo");
         String titulo = request.getParameter("titulo");
         String hora_duracion = request.getParameter("hora_duracion");
         String fecha_inicio = request.getParameter("fecha_inicio");
         String fecha_fin = request.getParameter("fecha_fin");
-        String profe_dui = request.getParameter("profe_dui");
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String direccion = request.getParameter("direccion");
-        String telefono = request.getParameter("telefono");
-        Curso c = new Curso(codigo, titulo, hora_duracion, fecha_inicio, fecha_fin, profe_dui, nombre, apellido, direccion, telefono);
+        int profe = Integer.parseInt(request.getParameter("profesor"));
+        //Curso c = new Curso(codigo, titulo, hora_duracion, fecha_inicio, fecha_fin, profe_dui, nombre, apellido, direccion, telefono);
+        Curso c = new Curso(codigo, titulo, hora_duracion, fecha_inicio, fecha_fin, new Profesor(profe));
         cd.insert(c);
 
         lista = cd.selectAll();
@@ -77,6 +84,8 @@ public class CursoServlet extends HttpServlet {
 
     protected void update(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         Curso c = new Curso();
         c.setId(Integer.parseInt(request.getParameter("id")));
         c.setCodigo(request.getParameter("codigo"));
@@ -84,17 +93,15 @@ public class CursoServlet extends HttpServlet {
         c.setHoraDuracionString(request.getParameter("hora_duracion"));
         c.setFechaInicioString(request.getParameter("fecha_inicio"));
         c.setFechaFinString(request.getParameter("fecha_fin"));
-        c.setProfe_dui(request.getParameter("profe_dui"));
-        c.setNombre(request.getParameter("nombre"));
-        c.setApellido(request.getParameter("apellido"));
-        c.setDireccion(request.getParameter("direccion"));
-        c.setTelefono(request.getParameter("telefono"));
+        c.setProfe(new Profesor(Integer.parseInt(request.getParameter("profesor"))));
         cd.update(c);
         response.sendRedirect(request.getContextPath() + "/curso?action=selectall");
     }
 
     protected void delete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         String id = request.getParameter("id");
         cd.delete(Integer.parseInt(id));
         response.sendRedirect(request.getContextPath() + "/curso?action=selectall");
@@ -102,19 +109,34 @@ public class CursoServlet extends HttpServlet {
 
     protected void selectAll(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         lista = cd.selectAll();
         request.setAttribute("lista", lista);
-        rd = request.getRequestDispatcher("/verCursos.jsp");
-        rd.forward(request, response);
+        request.getRequestDispatcher("/verCursos.jsp").forward(request, response);
 
     }
 
     protected void selectById(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
         int id = Integer.parseInt(request.getParameter("id"));
         Curso c = cd.selectById(id);
+        List<Profesor> p = profeDao.selectAll();
         request.setAttribute("Curso", c);
+        request.setAttribute("profes", p);
         rd = request.getRequestDispatcher("/editarCurso.jsp");
+        rd.forward(request, response);
+    }
+
+    private void goInsert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ProfesorDao pr = new ProfesorDao(conn);
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", (GlobalUsuario.getUSUARIO() != null && GlobalUsuario.getUSUARIO() != "")?GlobalUsuario.getUSUARIO(): null);
+        List<Profesor> profes = pr.selectAll();
+        request.setAttribute("profes", profes);
+        rd = request.getRequestDispatcher("/cursos.jsp");
         rd.forward(request, response);
     }
 

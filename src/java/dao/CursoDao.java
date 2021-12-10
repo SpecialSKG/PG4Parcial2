@@ -17,40 +17,35 @@ public class CursoDao {
 
     public boolean insert(Curso c) {
         try {
-            String sql = "Insert into curso (codigo,titulo,hora_duracion,fecha_inicio,fecha_fin,profe_dui,nombre,apellido,direccion,telefono) values(?,?,?,?,?,?,?,?,?,?);";
+            String sql = "Insert into curso (codigo,titulo,hora_duracion,fecha_inicio,fecha_fin,profesor) values(?,?,?,?,?,?);";
             PreparedStatement ps = conn.Conectar().prepareStatement(sql);
             ps.setString(1, c.getCodigo());
             ps.setString(2, c.getTitulo());
             ps.setString(3, c.getHoraDuracionString());
             ps.setString(4, c.getFechaInicioString());
             ps.setString(5, c.getFechaFinString());
-            ps.setString(6, c.getProfe_dui());
-            ps.setString(7, c.getNombre());
-            ps.setString(8, c.getApellido());
-            ps.setString(9, c.getDireccion());
-            ps.setString(10, c.getTelefono());
+            ps.setInt(6, c.getProfe().getIdprofesor());
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
+            System.out.println("/*/*/*/*/*/*/");
+            System.out.println(e);
+            System.out.println("/*/*/*/*/*/*/");
             return false;
         }
     }
 
     public boolean update(Curso c) {
         try {
-            String sql = "update curso set codigo=?,titulo=?,hora_duracion=?,fecha_inicio=?,fecha_fin=?,profe_dui=?,nombre=?,apellido=?,direccion=?,telefono=? where id=?; ";
+            String sql = "update curso set codigo=?,titulo=?,hora_duracion=?,fecha_inicio=?,fecha_fin=?,profesor=? where id=?; ";
             PreparedStatement ps = conn.Conectar().prepareStatement(sql);
             ps.setString(1, c.getCodigo());
             ps.setString(2, c.getTitulo());
             ps.setString(3, c.getHoraDuracionString());
             ps.setString(4, c.getFechaInicioString());
             ps.setString(5, c.getFechaFinString());
-            ps.setString(6, c.getProfe_dui());
-            ps.setString(7, c.getNombre());
-            ps.setString(8, c.getApellido());
-            ps.setString(9, c.getDireccion());
-            ps.setString(10, c.getTelefono());
-            ps.setInt(11, c.getId());
+            ps.setInt(6, c.getProfe().getIdprofesor());
+            ps.setInt(7, c.getId());
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
@@ -74,7 +69,7 @@ public class CursoDao {
 
     public List<Curso> selectAll() {
         try {
-            String sql = "select * from curso;";
+            String sql = "SELECT * FROM curso c inner join profesor p on c.profesor = p.idprofesor;";
             PreparedStatement ps = conn.Conectar().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
@@ -87,11 +82,7 @@ public class CursoDao {
                 c.setHora_duracion(rs.getTimestamp("hora_duracion"));
                 c.setFecha_inicio(rs.getDate("fecha_inicio"));
                 c.setFecha_fin(rs.getDate("fecha_fin"));
-                c.setProfe_dui(rs.getString("profe_dui"));
-                c.setNombre(rs.getString("nombre"));
-                c.setApellido(rs.getString("apellido"));
-                c.setDireccion(rs.getString("direccion"));
-                c.setTelefono(rs.getString("telefono"));
+                c.setProfe(new Profesor(rs.getInt("idprofesor"),rs.getInt("dui"),rs.getString("nombre"),rs.getString("apellido"),rs.getString("direccion"), rs.getString("telefono")));
                 lista.add(c);
             }
             return lista;
@@ -102,7 +93,7 @@ public class CursoDao {
 
     public Curso selectById(int id) {
         Curso c = new Curso();
-        String sql = "select * from curso where id = ?;";
+        String sql = "SELECT * FROM curso c inner join profesor p on c.profesor = p.idprofesor where c.id = ?;";
         try {
             PreparedStatement ps = conn.Conectar().prepareStatement(sql);
             ps.setInt(1, id);
@@ -114,11 +105,7 @@ public class CursoDao {
                 c.setHora_duracion(rs.getDate("hora_duracion"));
                 c.setFecha_inicio(rs.getDate("fecha_inicio"));
                 c.setFecha_fin(rs.getDate("fecha_fin"));
-                c.setProfe_dui(rs.getString("profe_dui"));
-                c.setNombre(rs.getString("nombre"));
-                c.setApellido(rs.getString("apellido"));
-                c.setDireccion(rs.getString("direccion"));
-                c.setTelefono(rs.getString("telefono"));
+                c.setProfe(new Profesor(rs.getInt("idprofesor"),rs.getInt("dui"),rs.getString("nombre"),rs.getString("apellido"),rs.getString("direccion"), rs.getString("telefono")));
             }
         } catch (Exception e) {
             System.out.println("Error " + e);

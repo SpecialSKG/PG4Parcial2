@@ -60,7 +60,7 @@
                             <li> <a href="#"><i class="fa fa-files-o fa-fw"></i> Cursos<span
                                         class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                    <li> <a href="curso?action=selectAll">Ver cursos</a> </li>
+                                    <li> <a href="curso?action=selectall">Ver cursos</a> </li>
                                     <li> <a href="cursos.jsp">Agregar curso</a> </li>
                                 </ul>
                             </li>
@@ -71,43 +71,40 @@
             <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">Notas</h1> 
-                        </div> <!-- /.col-lg-12 -->
-                    </div> <!-- /.row -->
-                    <div class="row">
-                        <div class="d-flex flex-wrap align-content-center col-12">
-                            <c:forEach items="${lista}" var="o">
-                                <div class="col-12 col-md-6 col-lg-4 p-1" style="height: 150px !important; margin-bottom: 100px">
-                                    <div class="col-12 m-0">
-                                        <div class="panel panel-primary">
-                                            <div class="panel-heading" style="padding-left: 50px !important">
-                                                <div class="d-flex justify-content-between  text-right">
-                                                    <div class="card-title"><h1>${o.getTitulo()}</h1></div>
-                                                </div>
-                                                <div class="col-12 p-3">
-                                                    <div class="row mb-0">
-                                                        <div class="col-6"><b>codigo </b>${o.getCodigo()}</div>
-                                                    </div>
-                                                    <div class="row mb-0">
-                                                        <div class="col-6"><b>fecha de inicio </b>${o.getFechaInicioString()}</div>
-                                                    </div>
-                                                    <div class="row mb-0">
-                                                        <div class="col-6"><b>fecha de fin </b>${o.getFechaFinString()}</div>
-                                                        <div class="col-6"></div>
-                                                    </div>
-                                                    <div class="row mb-0">
-                                                        <div class="col-6"><b>horas de duracion </b>${o.getHoraDuracionString()}</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                    <div class="card-action" style="padding-left:25px; "> <a
-                                                    href="notas?action=uncurso&id=${o.getId()}">Ver Alumnos</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <h1>Agregar profesor</h1>
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <a class="btn btn-primary mb-5" href="inicio.jsp"><i class="bi bi-house"></i>&nbsp;Inicio</a> <a class="btn btn-info mb-5" href="profesor?action=seleccionarTodo"><i class="bi bi-person-check-fill"></i>&nbsp;Profesores registrados</a>
+                            <form action="profesor?action=insertar" method="POST">
+
+                                <div class="form-group">
+                                    <label for="dui">DUI</label>
+                                    <input type="text" name="dui" class="form-control" id="dui">
                                 </div>
-                            </c:forEach>
+
+                                <div class="form-group">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" name="nombre" class="form-control" id="nombre">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="apellido">Apellido</label>
+                                    <input type="text" name="apellido" class="form-control" id="apellido">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="direccion">Dirección</label>
+                                    <input type="text" name="direccion" class="form-control" id="direccion">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="telefono">Teléfono</label>
+                                    <input type="text" name="telefono" class="form-control" id="telefono">
+                                </div>
+
+                                <button class="btn btn-success" type="submit">Guardar</button>
+                            </form>
+                            <br>
+                            <center>${msg}</center>
                         </div>
                     </div>
                 </div>
