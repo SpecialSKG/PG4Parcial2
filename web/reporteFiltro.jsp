@@ -17,10 +17,11 @@
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pgracademia?useSSL=false&characterEncoding=latin1",
                     "angel", "1234");
             
-            File reportFile = new File(application.getRealPath("Ireports/reporteNotas.jasper"));
+            File reportFile = new File(application.getRealPath("Ireports/reporteFiltro.jasper"));
             
             Map parametros = new HashMap();
-            
+            String valor = request.getParameter("titulo");
+            parametros.put("filtro", new String(valor));
             byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath(), parametros, conn);
             response.setContentType("application/pdf");
             response.setContentLength(bytes.length);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteFiltro" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dc059475-0cee-4861-ace5-deee4342a3d8">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteFiltro" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dc059475-0cee-4861-ace5-deee4342a3d8">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -28,8 +28,7 @@ FROM
      `alumno` alumno INNER JOIN `nota` nota ON alumno.`id` = nota.`alumno`
      INNER JOIN `curso` curso ON nota.`curso` = curso.`id`
      INNER JOIN `profesor` profesor ON curso.`profesor` = profesor.`idprofesor`
-WHERE curso.titulo = $P{filtro}
-     ]]>
+WHERE curso.titulo = $P{filtro}]]>
 	</queryString>
 	<field name="curso_codigo" class="java.lang.String"/>
 	<field name="curso_titulo" class="java.lang.String"/>
@@ -44,10 +43,6 @@ WHERE curso.titulo = $P{filtro}
 		<band height="132" splitType="Stretch">
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="555" height="100" backcolor="#094F8B" uuid="2708a7f3-0b66-42b4-947f-bc217e0a9579"/>
-				<image>
-					<reportElement x="433" y="11" width="101" height="83" uuid="9a4b4636-7e8f-43f1-aef5-a54a53164476"/>
-					<imageExpression><![CDATA["C:\\Users\\user\\Documents\\Tamara\\usam.png"]]></imageExpression>
-				</image>
 				<staticText>
 					<reportElement style="Title" x="15" y="26" width="419" height="66" uuid="505c2434-4929-4f43-a11b-acbbb497786f"/>
 					<textElement textAlignment="Center">

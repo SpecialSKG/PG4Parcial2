@@ -149,7 +149,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="reporteNotas.jsp">
+                                <a href="reporteNotas.jsp?accion=notas">
                                     <div class="panel-footer">
                                         <span class="pull-left">Ver Detalles</span>
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

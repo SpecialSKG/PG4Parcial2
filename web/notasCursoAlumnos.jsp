@@ -139,6 +139,13 @@
                         <div class="col-12 d-flex justify-content-end">
                             <a class="btn btn-info mb-5" href="notas?action=insertarcc&id=${curso.getId()}">Insertar un Nuevo Estudiante a este Curso</a> 
                         </div>
+                        <div class="col-12 d-flex justify-content-end">
+                            <form action="reporteFiltro.jsp">
+                                <input type="hidden" id="titulo" name="titulo" value="${curso.getTitulo()}"/>
+                                <input type="hidden" id="accion" name="accion" value="filtro"/>
+                                <input type="submit" value="Generar PDF"/>
+                            </form>
+                        </div>
                     </div>
 
                     <c:choose>
